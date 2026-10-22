@@ -2,7 +2,7 @@
 """
 百炼 API Key 验证脚本（填完 .env 后第一步跑它）
 
-用法：.venv\Scripts\python verify_key.py
+用法：.venv/Scripts/python verify_key.py
 成功：打印模型返回的一句问候，说明密钥与网络都通。
 失败：打印具体原因与排查建议。
 """
