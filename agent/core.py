@@ -58,14 +58,14 @@ def get_model_name() -> str:
 def run_agent(client: OpenAI, messages: list, model: str = None) -> tuple:
     """执行一轮完整的 Agent 循环。
 
-    :param messages: OpenAI 格式消息列表（含 system，不含本轮结果）
+    :param messages: OpenAI 格式消息列表（纯对话历史，不含 system；本函数内部注入）
     :return: (最终回答文本, 工具执行事件列表, 更新后的 messages)
              事件：{"type": "tool_call", "name", "args"}
                    {"type": "tool_result", "name", "ok", "result"}
     """
     model = model or get_model_name()
     events = []
-    work = list(messages)
+    work = [{"role": "system", "content": SYSTEM_PROMPT}] + list(messages)
 
     for _ in range(MAX_TOOL_ROUNDS):
         resp = client.chat.completions.create(
@@ -77,7 +77,8 @@ def run_agent(client: OpenAI, messages: list, model: str = None) -> tuple:
         msg = resp.choices[0].message
 
         if not msg.tool_calls:
-            return (msg.content or "（模型未返回内容）"), events, work
+            answer = msg.content or "（模型未返回内容）"
+            return answer, events, list(messages) + [{"role": "assistant", "content": answer}]
 
         # 记录带 tool_calls 的助手消息，再逐个执行工具并回填结果
         work.append({
@@ -116,4 +117,5 @@ def run_agent(client: OpenAI, messages: list, model: str = None) -> tuple:
     # 工具轮次耗尽：强制收尾
     work.append({"role": "user", "content": "（系统提示：请基于以上工具结果直接给出最终回答）"})
     resp = client.chat.completions.create(model=model, messages=work, temperature=0.3)
-    return resp.choices[0].message.content, events, work
+    answer = resp.choices[0].message.content or "（模型未返回内容）"
+    return answer, events, list(messages) + [{"role": "assistant", "content": answer}]

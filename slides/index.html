@@ -56,9 +56,11 @@ code{background:var(--panel2);padding:2px 8px;border-radius:6px;font-size:17px;
   <p class="big">自然语言驱动的运动健康 Agent</p>
   <p class="muted" style="margin:18px 0 30px">用一句话完成「评估训练 → 规划下次 → 计算营养 → 生成周报」</p>
   <div>
-    <span class="tag">路径 B · 业务应用 + Agent 能力</span>
-    <span class="tag green">10 个自研工具</span>
-    <span class="tag warn">1 个 Agent Skill</span>
+    <span class="tag">路径 A · 技术栈完整（7/7 达标）</span>
+    <span class="tag green">LangGraph 框架</span>
+    <span class="tag warn">MCP 服务器 × 1</span>
+    <span class="tag">10 个自研工具</span>
+    <span class="tag">1 个 Agent Skill</span>
   </div>
   <p class="muted" style="margin-top:46px;font-size:22px">姓名：________　学号：________　《开源 AI 技术实践》期末汇报</p>
 </section>
@@ -88,7 +90,7 @@ code{background:var(--panel2);padding:2px 8px;border-radius:6px;font-size:17px;
     <div class="arrow">→</div>
     <div class="abox"><b>🖥️ Streamlit</b><span>多轮对话<br>执行过程面板<br>会话保存</span></div>
     <div class="arrow">→</div>
-    <div class="abox" style="border-color:var(--accent2)"><b>🧠 Agent 循环</b><span>自研 Tool Calling<br>最多 8 轮<br>失败可解释</span></div>
+    <div class="abox" style="border-color:var(--accent2)"><b>🧠 LangGraph Agent</b><span>StateGraph ReAct<br>bind_tools + ToolNode<br>自研循环可对照切换</span></div>
     <div class="arrow">→</div>
     <div class="abox"><b>⚙️ 通义千问</b><span>qwen-plus<br>阿里百炼<br>OpenAI 兼容</span></div>
   </div>
@@ -97,9 +99,11 @@ code{background:var(--panel2);padding:2px 8px;border-radius:6px;font-size:17px;
     <div class="arrow">⇅</div>
     <div class="abox"><b>📘 Agent Skill</b><span>weekly-report<br>SKILL.md 规范</span></div>
     <div class="arrow">⇅</div>
+    <div class="abox"><b>🔌 MCP 服务器</b><span>官方 SDK · 5 工具<br>stdio 传输<br>客户端演示可跑</span></div>
+    <div class="arrow">⇅</div>
     <div class="abox"><b>📁 output/</b><span>周报 Markdown<br>唯一可写目录<br>权限隔离</span></div>
   </div>
-  <p class="muted">循环：LLM 发起工具调用 → dispatch 路由到本地函数 → 结果回传 → 继续调用或给出中文回答</p>
+  <p class="muted">ReAct 循环：agent 发起工具调用 → ToolNode 执行本地函数 → 结果回传 → 继续调用或给出中文回答</p>
 </section>
 
 <!-- 4 关键能力：工具 -->
@@ -163,11 +167,11 @@ code{background:var(--panel2);padding:2px 8px;border-radius:6px;font-size:17px;
     <tr><td>demo_1</td><td>Streamlit</td><td>多轮 Agent 对话 + 执行过程面板 + 会话 JSON 落盘</td></tr>
     <tr><td>demo_2</td><td>OpenAI 兼容 + Tool Calling</td><td>演示工具 → <b>10 个自研运动科学工具</b>；自研多轮调用循环（轮次上限/异常兜底/失败可解释）</td></tr>
     <tr><td>demo_3/4</td><td>百炼调用 + .env 密钥管理</td><td>同一套配置可切任意兼容端点（Ollama 等）</td></tr>
-    <tr><td>demo_5</td><td>Agent / Skill 概念</td><td>无框架极简实现，原理可口述；Skill 带 frontmatter 规范；<b>权限隔离 + 单元测试</b></td></tr>
+    <tr><td>demo_5</td><td>Agent 框架 / Skill / MCP 概念</td><td>正式接入 <b>LangGraph</b>（StateGraph+ToolNode ReAct）；新增<b>官方 SDK MCP 服务器（5 工具）+ 客户端演示</b>；Skill 规范化；<b>权限隔离 + 单元测试</b></td></tr>
   </table>
   <div class="card" style="border-color:var(--accent2)">
     <p>💡 <b>核心增量</b>：业务算法全部移植自本人独立开发的 HarmonyOS 项目「衡练 SportHealthAgent」（ArkTS 规则引擎），
-    <b>不是 demo_5 换皮</b>——新场景（运动健康）+ 新工具（10 个）+ 新 Skill + 写入权限隔离。</p>
+    <b>不是 demo_5 换皮</b>——新场景（运动健康）+ 新工具（10 个）+ 开源框架编排 + MCP 服务化 + 写入权限隔离。</p>
   </div>
 </section>
 
@@ -195,7 +199,8 @@ code{background:var(--panel2);padding:2px 8px;border-radius:6px;font-size:17px;
     <tr><td>2</td><td>「练了 90 分钟力量…帮我评估、安排明天、怎么吃」</td><td>3 个工具链式调用，面板可见 ✅</td></tr>
     <tr><td>3</td><td>「我卧推 80kg×5 次，极限多少？」</td><td>1RM 双公式结果</td></tr>
     <tr><td>4</td><td>「用示例数据生成周训练报告」</td><td>read_skill → 计算展示 → 确认 → 写入 output/</td></tr>
-    <tr><td>5</td><td>打开 output/ 目录与仓库关键代码</td><td>周报 .md；指认 core.py / registry.py / training.py</td></tr>
+    <tr><td>5</td><td><code>python mcp_client_demo.py</code>（离线可跑）</td><td>MCP 握手 → 列 5 工具 → 实际调用返回</td></tr>
+    <tr><td>6</td><td>打开 output/ 目录与仓库关键代码</td><td>周报 .md；指认 graph.py / core.py / training.py</td></tr>
   </table>
   <p class="muted">备份：若现场网络异常，播放 ≤3 分钟录屏（已准备演示视频）。</p>
 </section>

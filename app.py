@@ -14,14 +14,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from agent.core import SYSTEM_PROMPT, get_client, get_model_name, run_agent
+from agent.backend import get_backend, get_model_name, has_api_key
 from agent.tools.registry import TOOL_SPECS
 
 st.set_page_config(page_title="衡练 AI 助手", page_icon="💪", layout="centered")
 
-# ---------------- 会话状态初始化 ----------------
+# ---------------- 会话状态初始化（纯对话历史，system 由后端注入） ----------------
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+    st.session_state.messages = []
 if "events_history" not in st.session_state:
     st.session_state.events_history = []   # 每轮的工具执行事件
 
@@ -53,11 +53,13 @@ with st.sidebar:
 
     st.divider()
     st.subheader("当前配置")
-    has_key = bool(os.getenv("DASHSCOPE_API_KEY") or os.getenv("OPENAI_API_KEY"))
+    has_key = has_api_key()
+    runner, backend_name = get_backend()
     base_url = os.getenv("OPENAI_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
     st.markdown(f"""
     - 模型：`{get_model_name()}`（OpenAI 兼容接口）
     - 端点：`{base_url.split('//')[1].split('/')[0]}`
+    - Agent 后端：**{backend_name}**（`AGENT_BACKEND` 可切换 langgraph / custom）
     - 密钥：{'✅ 已配置' if has_key else '❌ 未配置（见 .env.example）'}
     """)
     if not has_key:
@@ -79,7 +81,7 @@ with st.sidebar:
             st.success(f"已保存 {fname}")
     with c2:
         if st.button("🗑️ 清空对话", use_container_width=True):
-            st.session_state.messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+            st.session_state.messages = []
             st.session_state.events_history = []
             st.rerun()
 
@@ -116,9 +118,9 @@ if prompt := st.chat_input("输入消息，回车发送…"):
     else:
         try:
             with st.chat_message("assistant"):
-                with st.spinner("思考中…"):
-                    answer, events, updated = run_agent(get_client(), st.session_state.messages)
-                st.session_state.messages = updated + [{"role": "assistant", "content": answer}]
+                with st.spinner(f"思考中（{backend_name}）…"):
+                    answer, events, updated = runner(st.session_state.messages)
+                st.session_state.messages = updated
                 st.session_state.events_history.append(events)
                 st.markdown(answer)
                 render_events(events, "current")

@@ -14,6 +14,21 @@ from agent.tools import training, diet, strength, whatif, skills
 from agent.tools.registry import TOOL_SPECS, dispatch
 
 
+# ---------- LangChain 工具封装层（path-a 分支，供 LangGraph 后端） ----------
+def test_lc_tools_wrapped():
+    from agent.tools.lc_tools import TOOLS
+    assert len(TOOLS) == len(TOOL_SPECS)  # 两种后端工具数量一致（10 个）
+    names = {t.name for t in TOOLS}
+    assert {"evaluate_training", "write_weekly_report", "read_skill"} <= names
+
+
+def test_lc_tool_invoke():
+    from agent.tools.lc_tools import estimate_one_rep_max as lc_1rm
+    import json as _json
+    out = _json.loads(lc_1rm.invoke({"weight_kg": 80, "reps": 5}))
+    assert out["average_kg"] > 0
+
+
 # ---------- 负荷估算公式 ----------
 def test_load_formula_basic():
     # 60min × factor=1（心率 200 → (200-60)/140=1）→ 60
