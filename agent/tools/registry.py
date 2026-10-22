@@ -7,7 +7,7 @@
 import json
 import traceback
 
-from agent.tools import training, diet, strength, whatif, skills
+from agent.tools import training, diet, strength, whatif, skills, imagegen
 
 
 def _spec(name: str, desc: str, func, params: dict, required: list) -> dict:
@@ -133,6 +133,17 @@ TOOL_SPECS_RAW = [
             "daily_kcal_delta": {"type": "integer", "description": "每日热量增减（kcal，负数=缺口）"},
         },
         ["current_weight_kg", "weekly_sessions", "avg_session_load", "daily_kcal_delta"],
+    ),
+    _spec(
+        "generate_image",
+        "生成一张运动/训练主题示意图（百炼文生图模型），保存到 output/images/ 并返回本地路径。"
+        "用户想要「画一张图 / 示意图 / 生成图片」时调用；prompt 需为具体中文画面描述。",
+        imagegen.generate_image,
+        {
+            "prompt": _STR | {"description": "中文画面描述，尽量具体：动作、姿势、场景、风格"},
+            "filename": _STR | {"description": "保存文件名（可省略），如 深蹲示意图.png"},
+        },
+        ["prompt"],
     ),
     _spec(
         "read_skill",

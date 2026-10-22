@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>衡练 AI 助手 · 期末项目汇报</title>
-<style>
+<html lang="zh-CN" data-page-node-id="VlNgtp6Rhk67p9clrTEDtt"><head data-page-node-id="kaodSh0iFr2EuJxESng2t1">
+<meta charset="UTF-8" data-page-node-id="jkuLHSXO9bJ9NDy9FSzk62">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="RjFVwBZ1fI7tsAHEM7R3Wk">
+<title data-page-node-id="nJq9mOd6zfsCT7DprEuijh">衡练 AI 助手 · 期末项目汇报</title>
+<style data-page-node-id="uD8lm8AEdY83Dy2TibAktc">
 :root{
   --bg:#0f172a; --panel:#1e293b; --panel2:#334155;
   --text:#f1f5f9; --muted:#94a3b8;
@@ -46,190 +45,192 @@ tr:nth-child(even) td{background:rgba(51,65,85,.35)}
 code{background:var(--panel2);padding:2px 8px;border-radius:6px;font-size:17px;
   font-family:Consolas,monospace;color:var(--accent2)}
 </style>
-</head>
-<body>
+<style id="__dm_no_drag_style__">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style></head>
+<body data-page-node-id="rO0FwDiKQGDBPfANixlxEp" style="">
 
 <!-- 1 封面 -->
-<section class="slide center active">
-  <div style="font-size:72px;margin-bottom:10px">💪</div>
-  <h1>衡练 AI 助手</h1>
-  <p class="big">自然语言驱动的运动健康 Agent</p>
-  <p class="muted" style="margin:18px 0 30px">用一句话完成「评估训练 → 规划下次 → 计算营养 → 生成周报」</p>
-  <div>
-    <span class="tag">路径 A · 技术栈完整（7/7 达标）</span>
-    <span class="tag green">LangGraph 框架</span>
-    <span class="tag warn">MCP 服务器 × 1</span>
-    <span class="tag">10 个自研工具</span>
-    <span class="tag">1 个 Agent Skill</span>
+<section class="slide center" data-page-node-id="AUtZ9vclz8dvAqBeQL4dhy">
+  <div style="font-size:72px;margin-bottom:10px" data-page-node-id="1OLfWV69Hdi1uGmos1PeJe">💪</div>
+  <h1 data-page-node-id="CQwNOgSsExD3ER4q3aIOSP">衡练 AI 助手</h1>
+  <p class="big" data-page-node-id="UCfezCBDv9FHaWjxNpGvkT">自然语言驱动的运动健康 Agent</p>
+  <p class="muted" style="margin:18px 0 30px" data-page-node-id="mwvbpo4rAAgch6wFD7UhGs">用一句话完成「评估训练 → 规划下次 → 计算营养 → 生成周报」</p>
+  <div data-page-node-id="73CYzotUltMtQ3cTwNBPFv">
+    <span class="tag" data-page-node-id="NeJg7QdIPnjeMoiPAa1DIK">路径 A · 技术栈完整（7/7 达标）</span>
+    <span class="tag green" data-page-node-id="4TZeCF6OfDZ04XxFzbyeyj">LangGraph 框架</span>
+    <span class="tag warn" data-page-node-id="ebX6bw7RbMuZg6K2b3BTTE">MCP 服务器 × 1</span>
+    <span class="tag" data-page-node-id="6EVOo1lUCesXvxNTAAqeTs">11 个自研工具</span>
+    <span class="tag" data-page-node-id="1TI9tA3tQ6mIbcnO6ivzrf">1 个 Agent Skill</span>
   </div>
-  <p class="muted" style="margin-top:46px;font-size:22px">姓名：________　学号：________　《开源 AI 技术实践》期末汇报</p>
+  <p class="muted" style="margin-top: 46px; font-size: 22px; white-space: pre-wrap;" data-page-node-id="v55dVlyNhecpymqZu2GzBM">姓名：____刘俊材____　学号：___f25015330
+_____　《开源 AI 技术实践》期末汇报</p>
 </section>
 
 <!-- 2 问题与用户 -->
-<section class="slide">
-  <h2>问题与用户是谁</h2>
-  <div class="grid3">
-    <div class="card"><div style="font-size:36px">🎯</div><p class="big">用户</p>
-      <p class="muted">每周训练 3–5 次的大学生健身爱好者 / 运动入门者，没有私教</p></div>
-    <div class="card"><div style="font-size:36px">😖</div><p class="big">痛点</p>
-      <p class="muted">练完不知道强度够不够、要恢复多久、怎么吃、明天练什么；专业知识散落在教练脑子和付费 App 里</p></div>
-    <div class="card"><div style="font-size:36px">🤖</div><p class="big">普通 AI 不行</p>
-      <p class="muted">问答型 AI 只能"凭空说话"，算不出基于<b class="accent">你的数据</b>的准确数值</p></div>
+<section class="slide active" data-page-node-id="YG3uo04nFryLXmrk2i4HZH">
+  <h2 data-page-node-id="VNLYK0IGE7FhR2SaV03wFu">问题与用户是谁</h2>
+  <div class="grid3" data-page-node-id="39TnRQ8i2StuHC8kX8ACbo">
+    <div class="card" data-page-node-id="bhM15yuqxhZm6hUZ1SAnb0"><div style="font-size:36px" data-page-node-id="3cgHeDcLtVm23VGImXUDAr">🎯</div><p class="big" data-page-node-id="M75RKHFhEJjQnFQGeHg1ZL">用户</p>
+      <p class="muted" data-page-node-id="gWZSujQ8PsJkXmyYrzgaVl">每周训练 3–5 次的大学生健身爱好者 / 运动入门者，没有私教</p></div>
+    <div class="card" data-page-node-id="BHP6BBTHufVrvRfxsjYn2S"><div style="font-size:36px" data-page-node-id="5ICUeCBYrW2169kBREkCt2">😖</div><p class="big" data-page-node-id="ZSIh2vGHlBuOse2hGotUGm">痛点</p>
+      <p class="muted" data-page-node-id="UFYblgcmtD5oG0l5mme8eb">练完不知道强度够不够、要恢复多久、怎么吃、明天练什么；专业知识散落在教练脑子和付费 App 里</p></div>
+    <div class="card" data-page-node-id="akOJX6xlAYqbEKqNGTKwYz"><div style="font-size:36px" data-page-node-id="WrgBNNJBNL1oaRxn2lVIky">🤖</div><p class="big" data-page-node-id="50kGe7mysbPHKYDdjRqbGM">普通 AI 不行</p>
+      <p class="muted" data-page-node-id="bHmC7RMJb837LvSyTAKCPo">问答型 AI 只能"凭空说话"，算不出基于<b class="accent" data-page-node-id="kLCxxBCwdlZWYAQq7n0qGN">你的数据</b>的准确数值</p></div>
   </div>
-  <div class="card" style="margin-top:22px;border:2px solid var(--accent2)">
-    <p>✅ <b>方案</b>：把确定性<b>运动科学算法</b>（负荷公式、疲劳加权、1RM 双公式、Mifflin-St Jeor）封装为<b>本地工具</b>，
-    由 LLM 通过 <b>Tool Calling</b> 用自然语言驱动——<span class="accent">对话的灵活性 + 规则引擎的精确性</span></p>
+  <div class="card" style="margin-top:22px;border:2px solid var(--accent2)" data-page-node-id="oT3Gc505qvFkp4aNeYjS1S">
+    <p data-page-node-id="xPTORfD5DVJuVaML8tHmok">✅ <b data-page-node-id="dk0jhIY6g5oW1XacJwCX9u">方案</b>：把确定性<b data-page-node-id="NG9huFZsQ4HXzl6jO5V0cp">运动科学算法</b>（负荷公式、疲劳加权、1RM 双公式、Mifflin-St Jeor）封装为<b data-page-node-id="MBFo7U4DiQHfkr6wkkn04j">本地工具</b>，
+    由 LLM 通过 <b data-page-node-id="K4E9BcMh8oEg2WbrfFxfEJ">Tool Calling</b> 用自然语言驱动——<span class="accent" data-page-node-id="0YnEjzQfOu7Kq6UnGa6zhA">对话的灵活性 + 规则引擎的精确性</span></p>
   </div>
 </section>
 
 <!-- 3 总体架构 -->
-<section class="slide">
-  <h2>总体架构</h2>
-  <div class="arch">
-    <div class="abox"><b>👤 用户</b><span>自然语言<br>「评估+安排+怎么吃」</span></div>
-    <div class="arrow">→</div>
-    <div class="abox"><b>🖥️ Streamlit</b><span>多轮对话<br>执行过程面板<br>会话保存</span></div>
-    <div class="arrow">→</div>
-    <div class="abox" style="border-color:var(--accent2)"><b>🧠 LangGraph Agent</b><span>StateGraph ReAct<br>bind_tools + ToolNode<br>自研循环可对照切换</span></div>
-    <div class="arrow">→</div>
-    <div class="abox"><b>⚙️ 通义千问</b><span>qwen-plus<br>阿里百炼<br>OpenAI 兼容</span></div>
+<section class="slide" data-page-node-id="EmyzyppXEiswjTIMOGkJqG">
+  <h2 data-page-node-id="St6lTinGnLXtXMrwI7KgSu">总体架构</h2>
+  <div class="arch" data-page-node-id="vF5k0TvPQv69hVWjsst3Ck">
+    <div class="abox" data-page-node-id="gUT53buFsYHEKUD2hmTmV1"><b data-page-node-id="aERDuH2zteYRAEsFy7dUbo">👤 用户</b><span data-page-node-id="lDqylJhpiLaS964TBWXd8B">自然语言<br data-page-node-id="6Qfhu9YC0wk07hE0js4XV8">「评估+安排+怎么吃」</span></div>
+    <div class="arrow" data-page-node-id="SkmDDTWBTXeNwol628GyJ8">→</div>
+    <div class="abox" data-page-node-id="DVwrK4vAb2LZRvAwEFr5EP"><b data-page-node-id="UoFOIeYWoknnkAOHDj0pAn">🖥️ Streamlit</b><span data-page-node-id="WFYrpZaZsDnLfYKrKtuFIk">多轮对话<br data-page-node-id="xxnwcSd3rxGON4T4PIOaiC">执行过程面板<br data-page-node-id="0EVHLMLINtPBuWXdzt7YhE">会话保存</span></div>
+    <div class="arrow" data-page-node-id="BIKHgOrNUcfWpZaFivJMRj">→</div>
+    <div class="abox" style="border-color:var(--accent2)" data-page-node-id="xyXOfQnFRodQeKGobGgjvm"><b data-page-node-id="HtguS82ceDIzrvg41f7d25">🧠 LangGraph Agent</b><span data-page-node-id="7sQt92I1YTZkugBTA5l0Vs">StateGraph ReAct<br data-page-node-id="CDkWrINIV3SW4F17a2qFGh">bind_tools + ToolNode<br data-page-node-id="58GOz39QHsn5bUZRDS1jBE">自研循环可对照切换</span></div>
+    <div class="arrow" data-page-node-id="4F0NZOhwQxCSBvtPYMD33v">→</div>
+    <div class="abox" data-page-node-id="jU5fY1BcWVaHddqt7dHciH"><b data-page-node-id="5q37ogvQM8BNUWqCGEgK7P">⚙️ 通义千问</b><span data-page-node-id="jIQyMODn018WFKvjebPQyx">qwen-plus<br data-page-node-id="JBPYHFHnu6RZj7uVdxoGeq">阿里百炼<br data-page-node-id="dbQmcrK19DPO5B125JaX6H">OpenAI 兼容</span></div>
   </div>
-  <div class="arch" style="margin-top:4px">
-    <div class="abox" style="border-color:var(--warn)"><b>🔧 10 个本地工具</b><span>评估/互补/疲劳/饮食<br>1RM/有效组/What-if<br>read_skill / 写周报</span></div>
-    <div class="arrow">⇅</div>
-    <div class="abox"><b>📘 Agent Skill</b><span>weekly-report<br>SKILL.md 规范</span></div>
-    <div class="arrow">⇅</div>
-    <div class="abox"><b>🔌 MCP 服务器</b><span>官方 SDK · 5 工具<br>stdio 传输<br>客户端演示可跑</span></div>
-    <div class="arrow">⇅</div>
-    <div class="abox"><b>📁 output/</b><span>周报 Markdown<br>唯一可写目录<br>权限隔离</span></div>
+  <div class="arch" style="margin-top:4px" data-page-node-id="DhhAqtcJAQDVeWEknpT4u3">
+    <div class="abox" style="border-color:var(--warn)" data-page-node-id="FC4TsdQP0ddyDwDQ28QPgw"><b data-page-node-id="0SmrI7x2n0CCJt4BBiKSSS">🔧 10 个本地工具</b><span data-page-node-id="XSmxJEI6Aj1RZSAy9FwK10">评估/互补/疲劳/饮食<br data-page-node-id="cWkElOaxnMx6XNzUGrVA9b">1RM/有效组/What-if<br data-page-node-id="fuqtI6Rw2lQUC2v9K7ACcQ">read_skill / 写周报</span></div>
+    <div class="arrow" data-page-node-id="io29dj3w0CpiXPU7P0r0St">⇅</div>
+    <div class="abox" data-page-node-id="AuAbrMNyKeZ2xJJ6DhU2rd"><b data-page-node-id="5GWgjxnfZPweXHbE7ckkjv">📘 Agent Skill</b><span data-page-node-id="6GIkBLKH9ndgZvOnMlsWM2">weekly-report<br data-page-node-id="w9cO4txP94ZphsKi3H39c8">SKILL.md 规范</span></div>
+    <div class="arrow" data-page-node-id="L1jmbp9ACtXtm1JEFZyvgL">⇅</div>
+    <div class="abox" data-page-node-id="xUEZaKoaxUikDfIiWoQIiq"><b data-page-node-id="Oi79ATu9chiAe5ptWA8fQ3">🔌 MCP 服务器</b><span data-page-node-id="G6ZK645wQG8RcbypIddbFF">官方 SDK · 5 工具<br data-page-node-id="AuOcz6KKc1xyY53gMP62bO">stdio 传输<br data-page-node-id="EewW3D7a8LfVx3Wq6bALQi">客户端演示可跑</span></div>
+    <div class="arrow" data-page-node-id="7cTRyCUoUHx6AlY4bYEnZS">⇅</div>
+    <div class="abox" data-page-node-id="p2lL1alh8CVeh7Fbl5Qxgi"><b data-page-node-id="hVYOtkYHLuWNhM0pQYNkXC">📁 output/</b><span data-page-node-id="kmS3DTJmBEqjwsDDbEhtvz">周报 Markdown<br data-page-node-id="gzd1ipZ3v6cOfq1cn3IEJC">唯一可写目录<br data-page-node-id="48XECBS7iZpDGA23TqlSFA">权限隔离</span></div>
   </div>
-  <p class="muted">ReAct 循环：agent 发起工具调用 → ToolNode 执行本地函数 → 结果回传 → 继续调用或给出中文回答</p>
+  <p class="muted" data-page-node-id="AE9BLOGVn3wDRjXHBnPtDN">ReAct 循环：agent 发起工具调用 → ToolNode 执行本地函数 → 结果回传 → 继续调用或给出中文回答</p>
 </section>
 
 <!-- 4 关键能力：工具 -->
-<section class="slide">
-  <h2>关键能力①：10 个自研业务工具</h2>
-  <table>
-    <tr><th>工具</th><th>功能</th><th>科学依据</th></tr>
-    <tr><td><code>evaluate_training</code></td><td>负荷估算 + 三档评估 + 恢复时长</td><td>负荷=时长×min(1,max(.1,(HR−60)/140))</td></tr>
-    <tr><td><code>plan_next_workout</code></td><td>下一次互补训练规划</td><td>12 类运动互补映射；负荷≥80 强制恢复</td></tr>
-    <tr><td><code>compute_fatigue</code></td><td>7 天疲劳指数 0–100</td><td>权重 [7..1] 加权 / 350 归一化</td></tr>
-    <tr><td><code>plan_daily_diet</code></td><td>每日热量 + 双碳水 + 饮水</td><td>Mifflin-St Jeor BMR×活动系数</td></tr>
-    <tr><td><code>recovery_meal_plan</code></td><td>运动后恢复餐配比</td><td>蛋白30/碳水50/脂肪20；超标×0.6</td></tr>
-    <tr><td><code>estimate_one_rep_max</code></td><td>1RM 极限重量估算</td><td>Epley + Brzycki 双公式交叉</td></tr>
-    <tr><td><code>effective_sets</code></td><td>有效组数/容量</td><td>RPE 或 10−RIR ≥ 7 计入</td></tr>
-    <tr><td><code>what_if_simulate</code></td><td>4/8 周体重与负荷推算</td><td>7700 kcal ≈ 1kg 经验公式</td></tr>
-    <tr><td><code>read_skill</code> / <code>write_weekly_report</code></td><td>Skill 读取 / 周报写入</td><td>白名单 + 文件名清洗（权限隔离）</td></tr>
-  </table>
+<section class="slide" data-page-node-id="uzMMieaRZRxdbOpaLnTgcU">
+  <h2 data-page-node-id="ydCwR7lh9Z2y2O9BqplGC8">关键能力①：11 个自研业务工具</h2>
+  <table data-page-node-id="jXmjJLJVgsLQsoiFGHgFug">
+    <tbody data-page-node-id="O5xxHa71BhrPjHJVpPVMeA"><tr data-page-node-id="Oy9IBfent7afFWQeVeeyIX"><th data-page-node-id="8Wun0eduA6F1iCfYpjgv1m">工具</th><th data-page-node-id="DCAi6jQmEc4D3RhLon4w2q">功能</th><th data-page-node-id="OEnqumjLVgXMDREAK2Jyvh">科学依据</th></tr>
+    <tr data-page-node-id="BvjNZkLSMLANWJAkhNN1hJ"><td data-page-node-id="4we4bC1yyd0XIJ1eBFHoEi"><code data-page-node-id="EGxiwrHfUAGLfthJTYbdEB">evaluate_training</code></td><td data-page-node-id="XhKK3msRpR4Zt4yaG3J3LK">负荷估算 + 三档评估 + 恢复时长</td><td data-page-node-id="T5cWEXWhrWOGksYkFrjwhS">负荷=时长×min(1,max(.1,(HR−60)/140))</td></tr>
+    <tr data-page-node-id="Aa3KQzOe4Fe6BPoUpMWpVO"><td data-page-node-id="fUtw1dWh5sQD1RcstrWRCh"><code data-page-node-id="Dd7AQrBuLzq4BMvaAEoguS">plan_next_workout</code></td><td data-page-node-id="KmdmS0rbHepucWciLyrZcd">下一次互补训练规划</td><td data-page-node-id="SDmUSetQXTvXH50NFrMFvA">12 类运动互补映射；负荷≥80 强制恢复</td></tr>
+    <tr data-page-node-id="nVVXLo81CZJeo6mnxZYbjl"><td data-page-node-id="TsZtJGXlgAgJYArT4c8IGt"><code data-page-node-id="wLo9Bfa4KySnGBIwfxo4OG">compute_fatigue</code></td><td data-page-node-id="VUJtZq0G1ps9IManmMS8WR">7 天疲劳指数 0–100</td><td data-page-node-id="zGz6rFKV55OWFIITC5GCUC">权重 [7..1] 加权 / 350 归一化</td></tr>
+    <tr data-page-node-id="iOqxsZVugYTNXcQ16lG5xO"><td data-page-node-id="7I4ec7bopZ9OsPplTxmtOj"><code data-page-node-id="zJcpwM14a2EyUIjUnLIurC">plan_daily_diet</code></td><td data-page-node-id="flXto80GhQ2T4lZLdgjdoy">每日热量 + 双碳水 + 饮水</td><td data-page-node-id="YLTi6dCgssoCJSP7dGx7mA">Mifflin-St Jeor BMR×活动系数</td></tr>
+    <tr data-page-node-id="nMtn6uP8RtCUy3gae9BGB0"><td data-page-node-id="xaKwwD2ucy050A7ModsmxV"><code data-page-node-id="FjaMzQ9biE6F3rC018lm7F">recovery_meal_plan</code></td><td data-page-node-id="voL7wqyEM1Br1PkZM3eC77">运动后恢复餐配比</td><td data-page-node-id="Fazt4AU5gPf0M06oVZJCH2">蛋白30/碳水50/脂肪20；超标×0.6</td></tr>
+    <tr data-page-node-id="BBO7MyHrqLD2WQgNetr66c"><td data-page-node-id="VXLtrT7ab65Du4cNcXPj0R"><code data-page-node-id="HUD9iwtC1tIt1jMe0QwlJH">estimate_one_rep_max</code></td><td data-page-node-id="FwKDw95YcSCIRhFc6qdjyg">1RM 极限重量估算</td><td data-page-node-id="HXdvbwSvbsU8FGEfowzfuV">Epley + Brzycki 双公式交叉</td></tr>
+    <tr data-page-node-id="fGpUHL4q4WuFu8HQ57BHHJ"><td data-page-node-id="I9R1uz1XBBc6o4F0e2wUiA"><code data-page-node-id="aILZY4TVktEEroDibRnXwW">effective_sets</code></td><td data-page-node-id="FvOFHhEHDQ3sFyDuwJbEvY">有效组数/容量</td><td data-page-node-id="EpA37em5f1gKNnGcmzQnnr">RPE 或 10−RIR ≥ 7 计入</td></tr>
+    <tr data-page-node-id="9p4CJtNWAhTTvenaYP0lsm"><td data-page-node-id="NOLp1H2knzQWrbVs7PAbmL"><code data-page-node-id="MlO9XLFNQBxQG6DCRTqfGL">what_if_simulate</code></td><td data-page-node-id="XV8Bz7Ci7yOHIaoU9OaVAs">4/8 周体重与负荷推算</td><td data-page-node-id="Rq3Cy7kNl09qLokj2izP5S">7700 kcal ≈ 1kg 经验公式</td></tr>
+    <tr><td><code>generate_image</code></td><td>文生图：训练动作示意图</td><td>百炼文生图模型，异步任务 API，落盘 output/images/</td></tr>
+    <tr data-page-node-id="RBUb3fWGtdqECfyJx3ersG"><td data-page-node-id="0uS7yhPeMZfMlYWFJ2GjcH"><code data-page-node-id="gyzcotruw1uALl7l80mXCM">read_skill</code> / <code data-page-node-id="MCVVzyuVjxpsddlkbENyOW">write_weekly_report</code></td><td data-page-node-id="m0wEyCvxIGR5DQL3KdAxbZ">Skill 读取 / 周报写入</td><td data-page-node-id="CTsvl3eeVs90CjPPNGY2lL">白名单 + 文件名清洗（权限隔离）</td></tr>
+  </tbody></table>
 </section>
 
 <!-- 5 关键能力：一句话多工具 + Skill -->
-<section class="slide">
-  <h2>关键能力②：一句话 → 多工具 · Skill → 产出物</h2>
-  <div class="card">
-    <p>🗣️ 「我今天练了 90 分钟力量，心率 125，消耗 500 千卡，帮我评估、安排明天的训练、再告诉我怎么吃」</p>
+<section class="slide" data-page-node-id="impY1eAF1Zyp3GntnZHmus">
+  <h2 data-page-node-id="OYYacFQ9o9cZ6DKsT7PoLd">关键能力②：一句话 → 多工具 · Skill → 产出物</h2>
+  <div class="card" data-page-node-id="iF72EbL22lYrXgz20cSvCf">
+    <p data-page-node-id="kQkLPZdEdxyiDucmoG3pLE">🗣️ 「我今天练了 90 分钟力量，心率 125，消耗 500 千卡，帮我评估、安排明天的训练、再告诉我怎么吃」</p>
   </div>
-  <div class="grid3" style="margin:8px 0">
-    <div class="card"><p class="big accent">① evaluate_training</p><p class="muted">负荷 47 → 偏低 → 恢复 8h</p></div>
-    <div class="card"><p class="big accent">② plan_next_workout</p><p class="muted">力量 → 有氧慢跑+拉伸 25min</p></div>
-    <div class="card"><p class="big accent">③ recovery_meal_plan</p><p class="muted">蛋白 38g / 碳水 63g / 脂肪 11g</p></div>
+  <div class="grid3" style="margin:8px 0" data-page-node-id="m6lHBZLSj0WPdFZJ5bQlmo">
+    <div class="card" data-page-node-id="pkpBQYY2bTkonVzKihJjR0"><p class="big accent" data-page-node-id="AodYfeR2nkesSMBqrdHqEy">① evaluate_training</p><p class="muted" data-page-node-id="0DCLHXyovGT6jSOruVDBEt">负荷 47 → 偏低 → 恢复 8h</p></div>
+    <div class="card" data-page-node-id="99iuMyAabQ1Jydem0vOxTc"><p class="big accent" data-page-node-id="7tgsMUApIXLfAt16DwCC4q">② plan_next_workout</p><p class="muted" data-page-node-id="BGNxDmpgHeBkb3YhfPNoou">力量 → 有氧慢跑+拉伸 25min</p></div>
+    <div class="card" data-page-node-id="GIXrvNnADNxUAI6sFWKGD7"><p class="big accent" data-page-node-id="JGbq4Q86goriPIZIDBsGhA">③ recovery_meal_plan</p><p class="muted" data-page-node-id="UORX0J6mPQkwimgZPbCKhZ">蛋白 38g / 碳水 63g / 脂肪 11g</p></div>
   </div>
-  <div class="card" style="border-color:var(--warn)">
-    <p>📘 <b>Skill 演示</b>：说「帮我生成周训练报告」→ Agent 调 <code>read_skill("weekly-report")</code> 读取 SKILL.md
-    → 按模板调 <code>compute_fatigue</code> 等计算 → <b>展示全文征得同意后</b>才调 <code>write_weekly_report</code>
-    写入 <code>output/周训练报告_*.md</code></p>
-    <p class="muted">⚠️ 写文件是唯一"危险操作"：先确认、后写入；且只能写 output/（路径逃逸被单元测试拦截）</p>
+  <div class="card" style="border-color:var(--warn)" data-page-node-id="DLOjWaLY3VwKrx7m3jTzcm">
+    <p data-page-node-id="ECbJ87VtoacQePIGNiUvaf">📘 <b data-page-node-id="FktSZQPFrfnLDszrzuVkWr">Skill 演示</b>：说「帮我生成周训练报告」→ Agent 调 <code data-page-node-id="8lRy4WjGDHEjPIOZXrpStx">read_skill("weekly-report")</code> 读取 SKILL.md
+    → 按模板调 <code data-page-node-id="9xLZL08lwkmHbvHBja4ADC">compute_fatigue</code> 等计算 → <b data-page-node-id="Y57tFxRn0smWPGBHMH8mmf">展示全文征得同意后</b>才调 <code data-page-node-id="ntNtv928QezQFHZFGHXppd">write_weekly_report</code>
+    写入 <code data-page-node-id="KWux4CVMhXv3xMCeADwlA8">output/周训练报告_*.md</code></p>
+    <p class="muted" data-page-node-id="xkHZeUnEv5vPWLZCvrdZxp">⚠️ 写文件是唯一"危险操作"：先确认、后写入；且只能写 output/（路径逃逸被单元测试拦截）</p>
   </div>
 </section>
 
 <!-- 6 执行过程面板 -->
-<section class="slide">
-  <h2>可演示性：执行过程面板（工具真被调用）</h2>
-  <div class="card" style="font-family:Consolas,monospace;font-size:18px;line-height:2">
-    <p><span style="color:var(--accent2)">⚙️ 执行过程（本轮 3 次工具调用）</span></p>
-    <p>→ 调用工具 <span class="accent">evaluate_training</span><br>
+<section class="slide" data-page-node-id="gcCBLbeKBThDnK3GhsID5g">
+  <h2 data-page-node-id="aCAoD4UQk74XCx6Gget9Nv">可演示性：执行过程面板（工具真被调用）</h2>
+  <div class="card" style="font-family:Consolas,monospace;font-size:18px;line-height:2" data-page-node-id="IcztJmCPE6Jyb3v9ixWD1Z">
+    <p data-page-node-id="MEjWuGZ73DZ2mwowr56YWX"><span style="color:var(--accent2)" data-page-node-id="2rgWB0qDE1GlU8UhMNvEdC">⚙️ 执行过程（本轮 3 次工具调用）</span></p>
+    <p data-page-node-id="fGCHGDNlCSF16rLQ9zqUKv">→ 调用工具 <span class="accent" data-page-node-id="XU4nu9isrpFb407PrvCdCJ">evaluate_training</span><br data-page-node-id="lNII173H8NLhLBljGk0LhG">
     &nbsp;&nbsp;{"sport_type": "力量", "duration_min": 90, "avg_heart_rate": 125}</p>
-    <p>✅ 返回 {"load": 47, "load_status": "偏低", "suggested_recovery_hours": 8, ...}</p>
-    <p>→ 调用工具 <span class="accent">plan_next_workout</span><br>
+    <p data-page-node-id="BPMTFXEZnXcXAt5xU3P6e3">✅ 返回 {"load": 47, "load_status": "偏低", "suggested_recovery_hours": 8, ...}</p>
+    <p data-page-node-id="7HQw29ANJH2MKVV8vaeUl4">→ 调用工具 <span class="accent" data-page-node-id="YiDkM0nsHOWZQygTfLa9LI">plan_next_workout</span><br data-page-node-id="WY2mGzSytjQ13ln4smu6Ef">
     &nbsp;&nbsp;{"sport_type": "力量", "training_load": 47}</p>
-    <p>✅ 返回 {"workout_type": "有氧慢跑 + 全身拉伸", "duration_min": 25, ...}</p>
-    <p>→ 调用工具 <span class="accent">recovery_meal_plan</span> …</p>
+    <p data-page-node-id="Vn1yam2Ay2K0JeLIfGKS8t">✅ 返回 {"workout_type": "有氧慢跑 + 全身拉伸", "duration_min": 25, ...}</p>
+    <p data-page-node-id="vQXBHdRmNST64vONyNctRt">→ 调用工具 <span class="accent" data-page-node-id="D3gusdwsr8sml5HQsqndzb">recovery_meal_plan</span> …</p>
   </div>
-  <p class="muted">界面内置面板逐条展示每次工具的名称 / 入参 / 返回（✅/❌）；工具异常时返回可读 error，Agent 会向用户解释原因而非崩溃。</p>
-  <p class="muted">侧边栏：当前模型与端点、10 个已注册工具清单、会话保存/加载（sessions/*.json）。</p>
+  <p class="muted" data-page-node-id="hUH0HIqWrSdZUKE3gZ0S9n">界面内置面板逐条展示每次工具的名称 / 入参 / 返回（✅/❌）；工具异常时返回可读 error，Agent 会向用户解释原因而非崩溃。</p>
+  <p class="muted" data-page-node-id="RlQW6JRDD3Vl5tJebTh26u">侧边栏：当前模型与端点、11 个已注册工具清单、会话保存/加载（sessions/*.json）。</p>
 </section>
 
 <!-- 7 与课堂实验的关系 -->
-<section class="slide">
-  <h2>与课堂实验的关系（增量在哪）</h2>
-  <table>
-    <tr><th>课堂实验</th><th>用了什么</th><th>我的增量</th></tr>
-    <tr><td>demo_1</td><td>Streamlit</td><td>多轮 Agent 对话 + 执行过程面板 + 会话 JSON 落盘</td></tr>
-    <tr><td>demo_2</td><td>OpenAI 兼容 + Tool Calling</td><td>演示工具 → <b>10 个自研运动科学工具</b>；自研多轮调用循环（轮次上限/异常兜底/失败可解释）</td></tr>
-    <tr><td>demo_3/4</td><td>百炼调用 + .env 密钥管理</td><td>同一套配置可切任意兼容端点（Ollama 等）</td></tr>
-    <tr><td>demo_5</td><td>Agent 框架 / Skill / MCP 概念</td><td>正式接入 <b>LangGraph</b>（StateGraph+ToolNode ReAct）；新增<b>官方 SDK MCP 服务器（5 工具）+ 客户端演示</b>；Skill 规范化；<b>权限隔离 + 单元测试</b></td></tr>
-  </table>
-  <div class="card" style="border-color:var(--accent2)">
-    <p>💡 <b>核心增量</b>：业务算法全部移植自本人独立开发的 HarmonyOS 项目「衡练 SportHealthAgent」（ArkTS 规则引擎），
-    <b>不是 demo_5 换皮</b>——新场景（运动健康）+ 新工具（10 个）+ 开源框架编排 + MCP 服务化 + 写入权限隔离。</p>
+<section class="slide" data-page-node-id="wH5C4YUVEArZ3KZRF0NBEb">
+  <h2 data-page-node-id="CYz1rn2IhTp0yHGxdEDc5C">与课堂实验的关系（增量在哪）</h2>
+  <table data-page-node-id="Jb3KgWVJEzgv39RDAwHKd4">
+    <tbody data-page-node-id="QEMDMHkIL5gUFUjZvtGqLl"><tr data-page-node-id="WCkMR6lANuDI3ICG0CZv04"><th data-page-node-id="P0vJZRV8YJv7zNvprohcPd">课堂实验</th><th data-page-node-id="UmW9VBZJFiw3fCGt3IPHwz">用了什么</th><th data-page-node-id="sSpVYL5gk4PrKAeQFFltCF">我的增量</th></tr>
+    <tr data-page-node-id="NM4E7fj3aMTwfldWW1ozYd"><td data-page-node-id="xDKXiN1BXbTjkwV3LcfuvK">demo_1</td><td data-page-node-id="q4hoKJQb19kDyJ8ZSDHyVT">Streamlit</td><td data-page-node-id="tDMLIiKpvgK1mPufz2RVHo">多轮 Agent 对话 + 执行过程面板 + 会话 JSON 落盘</td></tr>
+    <tr data-page-node-id="xUAPJkC97l3ddq05aFgGg0"><td data-page-node-id="VvOxrRYsMkWLROVuCHoK3b">demo_2</td><td data-page-node-id="THfsbsJus3RSngKpmlnjfd">OpenAI 兼容 + Tool Calling</td><td data-page-node-id="LWdBpQGLCu5cPGSoqLx7sH">演示工具 → <b data-page-node-id="GVWMCmC0B1gwhHSKH6SmXY">11 个自研运动科学工具</b>；自研多轮调用循环（轮次上限/异常兜底/失败可解释）</td></tr>
+    <tr data-page-node-id="lEUL7HYqeGT7oHVvFWgiOZ"><td data-page-node-id="BsnQsnJz5RaUGC26SRi6FD">demo_3/4</td><td data-page-node-id="idR1qgLBEULLqmrU6x5EHN">百炼调用 + .env 密钥管理</td><td data-page-node-id="Hek1mj8GkG7CJbrFU27KEb">同一套配置可切任意兼容端点（Ollama 等）</td></tr>
+    <tr data-page-node-id="9Vu75BMrdy0ovUJBwcjGFF"><td data-page-node-id="bwXATAAWLzyEM2rtJUAbaI">demo_5</td><td data-page-node-id="lBGpvqa3vAuEM9hX7fo2wq">Agent 框架 / Skill / MCP 概念</td><td data-page-node-id="ItRd4fWXCLn206vHPt9ncE">正式接入 <b data-page-node-id="Q4un512AaWgNChReuFM31E">LangGraph</b>（StateGraph+ToolNode ReAct）；新增<b data-page-node-id="rP0DWu2dzJfq0YtQgO1kqd">官方 SDK MCP 服务器（5 工具）+ 客户端演示</b>；Skill 规范化；<b data-page-node-id="ZKqZMrFLlQ4hHodiGwZR0H">权限隔离 + 单元测试</b></td></tr>
+  </tbody></table>
+  <div class="card" style="border-color:var(--accent2)" data-page-node-id="LS8z3CuqhhRi4DqC8uV95y">
+    <p data-page-node-id="sIcS6TNODdBQA0t41glRLz">💡 <b data-page-node-id="3YRtjUimCAO4L7BucAs4Kq">核心增量</b>：业务算法全部移植自本人独立开发的 HarmonyOS 项目「衡练 SportHealthAgent」（ArkTS 规则引擎），
+    <b data-page-node-id="4qnhIvw0TEUte7fGMckGKZ">不是 demo_5 换皮</b>——新场景（运动健康）+ 新工具（11 个）+ 开源框架编排 + MCP 服务化 + 写入权限隔离。</p>
   </div>
 </section>
 
 <!-- 8 思政与合规 -->
-<section class="slide">
-  <h2>思政与合规说明</h2>
-  <div class="grid2">
-    <div class="card"><p class="big">🏥 健康边界</p>
-      <p class="muted">饮食建议由工具与系统提示词<b>强制</b>附带「日常营养参考，非医疗诊断；如有基础疾病请遵医嘱」；伤病只建议休息与就医</p></div>
-    <div class="card"><p class="big">🔒 隐私保护</p>
-      <p class="muted">不采集真实个人信息；周报用 SKILL.md 声明的虚构样例；会话仅存本地</p></div>
-    <div class="card"><p class="big">🛡️ 权限隔离</p>
-      <p class="muted">Agent 只能写 output/ 目录：白名单 + 文件名清洗防路径逃逸，pytest 验证（test_write_sandbox）</p></div>
-    <div class="card"><p class="big">📚 学术诚信</p>
-      <p class="muted">算法来自本人另一独立项目，已在 README 说明；课堂 demo 仅作能力基线；仓库无任何真实密钥</p></div>
+<section class="slide" data-page-node-id="Q2N3DzDHtJxyEzibn96BzW">
+  <h2 data-page-node-id="qTjiKNnjEHM1vpkim0C5lN">思政与合规说明</h2>
+  <div class="grid2" data-page-node-id="VNvt9YwSOR3RnFeqtZZtyS">
+    <div class="card" data-page-node-id="IAAH5eao1JBYvZ0HW2DHW3"><p class="big" data-page-node-id="p9zTF6Wtay71LRzzRFxZJs">🏥 健康边界</p>
+      <p class="muted" data-page-node-id="WEuVhLBkIyDiupFZOzDQZD">饮食建议由工具与系统提示词<b data-page-node-id="9yRQ0jO8cvFtYnz5B95nZW">强制</b>附带「日常营养参考，非医疗诊断；如有基础疾病请遵医嘱」；伤病只建议休息与就医</p></div>
+    <div class="card" data-page-node-id="JctRQEnJeNkx8lyfBVbrRe"><p class="big" data-page-node-id="K9dXRykYmoOkkY1LtHB0A2">🔒 隐私保护</p>
+      <p class="muted" data-page-node-id="ICqt5QkYH1tNRPl1Zqz295">不采集真实个人信息；周报用 SKILL.md 声明的虚构样例；会话仅存本地</p></div>
+    <div class="card" data-page-node-id="R020WXm5pr1vFAx1OqSIhZ"><p class="big" data-page-node-id="XCVrhgMoU9hxV1rB5Yc7Aw">🛡️ 权限隔离</p>
+      <p class="muted" data-page-node-id="OVrLNuJP19jSBKUvDtSN7b">Agent 只能写 output/ 目录：白名单 + 文件名清洗防路径逃逸，pytest 验证（test_write_sandbox）</p></div>
+    <div class="card" data-page-node-id="owD4TxmaklZneuXZaZkRh0"><p class="big" data-page-node-id="aR1iFSJcuS8Mv4mNrrybEH">📚 学术诚信</p>
+      <p class="muted" data-page-node-id="50GMGPAqVM1hdvWBlTQZXP">算法来自本人另一独立项目，已在 README 说明；课堂 demo 仅作能力基线；仓库无任何真实密钥</p></div>
   </div>
 </section>
 
 <!-- 9 演示步骤 -->
-<section class="slide">
-  <h2>现场演示步骤（约 4 分钟）</h2>
-  <table>
-    <tr><th>#</th><th>操作</th><th>预期</th></tr>
-    <tr><td>1</td><td>双击 run.bat 启动（或 streamlit run app.py）</td><td>浏览器打开对话界面</td></tr>
-    <tr><td>2</td><td>「练了 90 分钟力量…帮我评估、安排明天、怎么吃」</td><td>3 个工具链式调用，面板可见 ✅</td></tr>
-    <tr><td>3</td><td>「我卧推 80kg×5 次，极限多少？」</td><td>1RM 双公式结果</td></tr>
-    <tr><td>4</td><td>「用示例数据生成周训练报告」</td><td>read_skill → 计算展示 → 确认 → 写入 output/</td></tr>
-    <tr><td>5</td><td><code>python mcp_client_demo.py</code>（离线可跑）</td><td>MCP 握手 → 列 5 工具 → 实际调用返回</td></tr>
-    <tr><td>6</td><td>打开 output/ 目录与仓库关键代码</td><td>周报 .md；指认 graph.py / core.py / training.py</td></tr>
-  </table>
-  <p class="muted">备份：若现场网络异常，播放 ≤3 分钟录屏（已准备演示视频）。</p>
+<section class="slide" data-page-node-id="kgodTiXIDQLrvd5DARQiIw">
+  <h2 data-page-node-id="O0HpCASKadOaEPMlf9sPg8">现场演示步骤（约 4 分钟）</h2>
+  <table data-page-node-id="BxwlUvlJepLv7tqJFGC8mY">
+    <tbody data-page-node-id="GitJesR4nk5cOxtbGj4HyH"><tr data-page-node-id="t0tx0UB5EPSUtVxMmDQ5ec"><th data-page-node-id="BIBaU0b23xlmEuS2vPl9Ug">#</th><th data-page-node-id="5NG9C6LVDa1hTDY2Ksdl4d">操作</th><th data-page-node-id="RwzHelEVkDMCM1L6PwJ5DD">预期</th></tr>
+    <tr data-page-node-id="KU8VKz2jyoq9S2UxdhBvdI"><td data-page-node-id="E9VXrse27yAsaf4SPbGBce">1</td><td data-page-node-id="x6hBmzNAVRXbxP9eKdNRNO">双击 run.bat 启动（或 streamlit run app.py）</td><td data-page-node-id="sbq9UyfmelNDEgsDZoZuNv">浏览器打开对话界面</td></tr>
+    <tr data-page-node-id="O41aHdftIiYkoucdx8D6Uc"><td data-page-node-id="rsQEVPxAFGm2H10LT81S0C">2</td><td data-page-node-id="tXTRxGjmCIL8JTt7lPv40L">「练了 90 分钟力量…帮我评估、安排明天、怎么吃」</td><td data-page-node-id="UeHBfmpmyp19O5tDudfuve">3 个工具链式调用，面板可见 ✅</td></tr>
+    <tr data-page-node-id="2CO7UUsrTPLgyqUGLaV4tK"><td data-page-node-id="KjtlWibuV5fF0A9weC244W">3</td><td data-page-node-id="XjrcnXRDAVbqoCm8xt8ch0">「我卧推 80kg×5 次，极限多少？」</td><td data-page-node-id="MRmQk2911a7ZaFtTRRDPSS">1RM 双公式结果</td></tr>
+    <tr data-page-node-id="mhByySjaUylAnSsR5CF8V4"><td data-page-node-id="UTg1I4jTFrMa7gtcYmelTY">4</td><td data-page-node-id="iluN5wpqo5JkoRHzVp2qUe">「用示例数据生成周训练报告」</td><td data-page-node-id="RMEg2Gj4EiGGk6IL2LOvjt">read_skill → 计算展示 → 确认 → 写入 output/</td></tr>
+    <tr data-page-node-id="xxT3jIGC0A6lYUauRoln2X"><td data-page-node-id="e1r3QbQINvvDJmjnOZH6iH">5</td><td data-page-node-id="AQi2IDAm1gou7cJpzLU3VO"><code data-page-node-id="M8vKBzeyn166TIcz91xucu">python mcp_client_demo.py</code>（离线可跑）</td><td data-page-node-id="whb3rAlNOaHVdeEAfq5r6D">MCP 握手 → 列 5 工具 → 实际调用返回</td></tr>
+    <tr data-page-node-id="66icES47wnjmADfcrRW8Oe"><td data-page-node-id="R4RzwZSkBTOpjKJAOiy95o">6</td><td data-page-node-id="VJ3kB6vbhgJnxHtcvUmf6W">打开 output/ 目录与仓库关键代码</td><td data-page-node-id="Zlmnp4Hgm6XBMONC50whz9">周报 .md；指认 graph.py / core.py / training.py</td></tr>
+  </tbody></table>
+  <p class="muted" data-page-node-id="NSvi0x2MocWOTA2peMaqIi">备份：若现场网络异常，播放 ≤3 分钟录屏（已准备演示视频）。</p>
 </section>
 
 <!-- 10 不足与改进 -->
-<section class="slide">
-  <h2>不足与后续改进</h2>
-  <div class="card"><p>1️⃣ <b>数据源</b>：目前靠口述/示例数据 → 计划接华为 Health Kit REST API 作为第 11 个工具</p></div>
-  <div class="card"><p>2️⃣ <b>流式</b>：工具过程按轮展示，未做 token 级流式渲染</p></div>
-  <div class="card"><p>3️⃣ <b>部署</b>：未 Docker 化 → 一份 Dockerfile 即可补齐</p></div>
-  <div class="card"><p>4️⃣ <b>长期记忆</b>：用户画像持久化（体重/目标），减少重复输入</p></div>
+<section class="slide" data-page-node-id="93VxBhxiefapHflhewOgqQ">
+  <h2 data-page-node-id="aSa8f9waIWVNBGuGqf5p2V">不足与后续改进</h2>
+  <div class="card" data-page-node-id="rFg0GXu6ZxEvn5tN3B4sKL"><p data-page-node-id="OZunzXFZn7Ga3FYxEfAFUX">1️⃣ <b data-page-node-id="hE5NdkUQACsvnRMaGDfRta">数据源</b>：目前靠口述/示例数据 → 计划接华为 Health Kit REST API 作为第 11 个工具</p></div>
+  <div class="card" data-page-node-id="XWHpwksFuVkoUutrMCYTrW"><p data-page-node-id="NLvOwcbihZs6XZeQceLd2y">2️⃣ <b data-page-node-id="bCieUvzjVEbAuI2WrLmYF9">流式</b>：工具过程按轮展示，未做 token 级流式渲染</p></div>
+  <div class="card" data-page-node-id="TABHMeNTMRGyhoFMjrS47o"><p data-page-node-id="F9eJelCN2SWB1sm1QPhm4d">3️⃣ <b data-page-node-id="v7dJregzE1cbmG1tNii7RW">部署</b>：未 Docker 化 → 一份 Dockerfile 即可补齐</p></div>
+  <div class="card" data-page-node-id="kbYrK0c0DxNwEf7oNNziA3"><p data-page-node-id="SF1aZdDP7pL0wS91E9RLZ1">4️⃣ <b data-page-node-id="CQGeqEmQi3p4GJdEYGKVmq">长期记忆</b>：用户画像持久化（体重/目标），减少重复输入</p></div>
 </section>
 
 <!-- 11 结束 -->
-<section class="slide center">
-  <div style="font-size:64px;margin-bottom:16px">🙏</div>
-  <h1>谢谢观看 · 欢迎提问</h1>
-  <p class="big" style="margin-top:14px">衡练 AI 助手 —— 让运动科学算法开口说人话</p>
-  <p class="muted" style="margin-top:30px;font-size:19px">
-    预答：工具不调用模型会怎样？→ 只剩聊天无精确数值<br>
-    Skill 与系统提示词的区别？→ Skill 是"可加载的操作规程+模板"，按需读取、带产出物<br>
+<section class="slide center" data-page-node-id="7qPoqY6MHUBQLwChNDGdmB">
+  <div style="font-size:64px;margin-bottom:16px" data-page-node-id="TjI0XJXc9qW0yqPUuKM1UZ">🙏</div>
+  <h1 data-page-node-id="HmUZcwWNe9YRVDEKQSyvpm">谢谢观看 · 欢迎提问</h1>
+  <p class="big" style="margin-top:14px" data-page-node-id="PaHgLGCv97vmXOu3WDIcLK">衡练 AI 助手 —— 让运动科学算法开口说人话</p>
+  <p class="muted" style="margin-top:30px;font-size:19px" data-page-node-id="LbeCQ6j1etpSaaGE3GkDW8">
+    预答：工具不调用模型会怎样？→ 只剩聊天无精确数值<br data-page-node-id="GdDRnbMMQoB2iHv0Gkdufu">
+    Skill 与系统提示词的区别？→ Skill 是"可加载的操作规程+模板"，按需读取、带产出物<br data-page-node-id="5MZa41l8B8XyjzdiFAMquK">
     密钥为什么不能进 Git？→ 仓库公开即泄漏，且历史难彻底清除
   </p>
 </section>
 
-<div class="hint">← → / 空格 翻页 · 点击右半屏下一页</div>
-<div class="footer" id="pager">1 / 11</div>
+<div class="hint" data-page-node-id="nEPNGb9bcHscQFsC36HT5Q">← → / 空格 翻页 · 点击右半屏下一页</div>
+<div class="footer" id="pager" data-page-node-id="zPfUxTeGlWWnVsfCjeTYAt">2 / 11</div>
 
-<script>
+<script data-page-node-id="jLvUxCCsszaLo4k2DbZPkB">
 const slides=[...document.querySelectorAll('.slide')];let cur=0;
 function show(i){cur=Math.max(0,Math.min(slides.length-1,i));
   slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
@@ -242,5 +243,6 @@ document.addEventListener('click',e=>{
   if(e.clientX>window.innerWidth/2)show(cur+1);else show(cur-1);});
 show(0);
 </script>
-</body>
-</html>
+
+
+</body></html>

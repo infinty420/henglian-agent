@@ -11,7 +11,7 @@ import json
 
 from langchain_core.tools import tool
 
-from agent.tools import training, diet, strength, whatif, skills
+from agent.tools import training, diet, strength, whatif, skills, imagegen
 
 
 def _j(result: dict) -> str:
@@ -76,6 +76,12 @@ def what_if_simulate(current_weight_kg: float, weekly_sessions: int,
 
 
 @tool
+def generate_image(prompt: str, filename: str = "") -> str:
+    """生成一张运动/训练主题示意图（百炼文生图模型），保存到 output/images/ 并返回本地路径。用户想要「画一张图 / 示意图 / 生成图片」时调用；prompt 需为具体中文画面描述。"""
+    return _j(imagegen.generate_image(prompt, filename))
+
+
+@tool
 def read_skill(skill_name: str) -> str:
     """读取指定 Agent Skill 的 SKILL.md（含操作步骤与模板）。用户要求生成周报时，先调用本工具读取 weekly-report 技能。"""
     return _j(skills.read_skill(skill_name))
@@ -87,9 +93,9 @@ def write_weekly_report(filename: str, content: str) -> str:
     return _j(skills.write_weekly_report(filename, content))
 
 
-# 供 LangGraph bind_tools 使用的完整工具集（10 个，与自研后端一一对应）
+# 供 LangGraph bind_tools 使用的完整工具集（11 个，与自研后端一一对应）
 TOOLS = [
     evaluate_training, plan_next_workout, compute_fatigue, plan_daily_diet,
     recovery_meal_plan, estimate_one_rep_max, effective_sets, what_if_simulate,
-    read_skill, write_weekly_report,
+    generate_image, read_skill, write_weekly_report,
 ]

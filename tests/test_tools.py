@@ -161,6 +161,22 @@ def test_write_sandbox(tmp_path, monkeypatch):
     assert "error" in skills.write_weekly_report("x.md", "   ")
 
 
+# ---------- 文生图工具（离线部分：文件名清洗与无 Key 错误路径） ----------
+def test_imagegen_filename_sanitize():
+    from agent.tools.imagegen import _safe_filename
+    assert _safe_filename("..\\..\\evil.png") == "evil.png"
+    assert _safe_filename("深蹲示意图") == "深蹲示意图.png"
+    assert _safe_filename("") .endswith(".png")
+
+
+def test_imagegen_no_key(monkeypatch):
+    from agent.tools import imagegen
+    monkeypatch.setenv("DASHSCOPE_API_KEY", "")
+    r = imagegen.generate_image("深蹲动作示意图")
+    assert "error" in r
+    assert "DASHSCOPE_API_KEY" in r["error"]
+
+
 # ---------- 注册表 ----------
 def test_registry_dispatch():
     r = dispatch("estimate_one_rep_max", '{"weight_kg": 100, "reps": 5}')

@@ -44,6 +44,10 @@ def render_events(events: list, key_prefix: str):
                 icon = "✅" if ev["ok"] else "❌"
                 st.markdown(f"{icon} **{ev['name']} 返回**")
                 st.json(ev["result"])
+                # 图片生成工具：直接在对话中内嵌展示
+                path = (ev.get("result") or {}).get("local_path")
+                if path and os.path.isfile(path):
+                    st.image(path, caption=path)
 
 
 # ---------------- 侧边栏 ----------------
