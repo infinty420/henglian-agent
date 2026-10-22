@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>衡练 AI 助手 · 期末项目汇报</title>
+<style>
+:root{
+  --bg:#0f172a; --panel:#1e293b; --panel2:#334155;
+  --text:#f1f5f9; --muted:#94a3b8;
+  --accent:#38bdf8; --accent2:#34d399; --warn:#fbbf24; --bad:#f87171;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:var(--bg);color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC",sans-serif;overflow:hidden}
+.slide{display:none;height:100vh;padding:56px 84px;flex-direction:column}
+.slide.active{display:flex}
+h1{font-size:44px;margin-bottom:16px}
+h2{font-size:34px;margin-bottom:28px;border-left:8px solid var(--accent);padding-left:16px}
+p,li,td,th{font-size:20px;line-height:1.75}
+.muted{color:var(--muted)}
+.accent{color:var(--accent)}
+.tag{display:inline-block;background:var(--accent);color:#0f172a;font-weight:700;
+  padding:4px 14px;border-radius:999px;font-size:16px;margin-right:8px}
+.tag.green{background:var(--accent2)}
+.tag.warn{background:var(--warn)}
+table{border-collapse:collapse;width:100%;margin:14px 0}
+th,td{border:1px solid var(--panel2);padding:10px 14px;text-align:left}
+th{background:var(--panel2);font-size:18px}
+tr:nth-child(even) td{background:rgba(51,65,85,.35)}
+.card{background:var(--panel);border-radius:14px;padding:22px 26px;margin:10px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.center{justify-content:center;align-items:center;text-align:center}
+.big{font-size:26px;font-weight:700}
+.footer{position:fixed;bottom:18px;right:28px;color:var(--muted);font-size:15px}
+.hint{position:fixed;bottom:18px;left:28px;color:var(--muted);font-size:14px}
+.arch{display:flex;align-items:center;justify-content:center;gap:0;margin:26px 0;flex-wrap:nowrap}
+.abox{background:var(--panel);border:2px solid var(--accent);border-radius:12px;
+  padding:14px 12px;text-align:center;min-width:150px}
+.abox b{display:block;font-size:19px;margin-bottom:6px}
+.abox span{font-size:14px;color:var(--muted);line-height:1.5;display:block}
+.arrow{font-size:26px;color:var(--accent);padding:0 10px}
+.tools-list{columns:2;column-gap:36px}
+.tools-list li{margin-bottom:6px}
+code{background:var(--panel2);padding:2px 8px;border-radius:6px;font-size:17px;
+  font-family:Consolas,monospace;color:var(--accent2)}
+</style>
+</head>
+<body>
+
+<!-- 1 封面 -->
+<section class="slide center active">
+  <div style="font-size:72px;margin-bottom:10px">💪</div>
+  <h1>衡练 AI 助手</h1>
+  <p class="big">自然语言驱动的运动健康 Agent</p>
+  <p class="muted" style="margin:18px 0 30px">用一句话完成「评估训练 → 规划下次 → 计算营养 → 生成周报」</p>
+  <div>
+    <span class="tag">路径 B · 业务应用 + Agent 能力</span>
+    <span class="tag green">10 个自研工具</span>
+    <span class="tag warn">1 个 Agent Skill</span>
+  </div>
+  <p class="muted" style="margin-top:46px;font-size:22px">姓名：________　学号：________　《开源 AI 技术实践》期末汇报</p>
+</section>
+
+<!-- 2 问题与用户 -->
+<section class="slide">
+  <h2>问题与用户是谁</h2>
+  <div class="grid3">
+    <div class="card"><div style="font-size:36px">🎯</div><p class="big">用户</p>
+      <p class="muted">每周训练 3–5 次的大学生健身爱好者 / 运动入门者，没有私教</p></div>
+    <div class="card"><div style="font-size:36px">😖</div><p class="big">痛点</p>
+      <p class="muted">练完不知道强度够不够、要恢复多久、怎么吃、明天练什么；专业知识散落在教练脑子和付费 App 里</p></div>
+    <div class="card"><div style="font-size:36px">🤖</div><p class="big">普通 AI 不行</p>
+      <p class="muted">问答型 AI 只能"凭空说话"，算不出基于<b class="accent">你的数据</b>的准确数值</p></div>
+  </div>
+  <div class="card" style="margin-top:22px;border:2px solid var(--accent2)">
+    <p>✅ <b>方案</b>：把确定性<b>运动科学算法</b>（负荷公式、疲劳加权、1RM 双公式、Mifflin-St Jeor）封装为<b>本地工具</b>，
+    由 LLM 通过 <b>Tool Calling</b> 用自然语言驱动——<span class="accent">对话的灵活性 + 规则引擎的精确性</span></p>
+  </div>
+</section>
+
+<!-- 3 总体架构 -->
+<section class="slide">
+  <h2>总体架构</h2>
+  <div class="arch">
+    <div class="abox"><b>👤 用户</b><span>自然语言<br>「评估+安排+怎么吃」</span></div>
+    <div class="arrow">→</div>
+    <div class="abox"><b>🖥️ Streamlit</b><span>多轮对话<br>执行过程面板<br>会话保存</span></div>
+    <div class="arrow">→</div>
+    <div class="abox" style="border-color:var(--accent2)"><b>🧠 Agent 循环</b><span>自研 Tool Calling<br>最多 8 轮<br>失败可解释</span></div>
+    <div class="arrow">→</div>
+    <div class="abox"><b>⚙️ 通义千问</b><span>qwen-plus<br>阿里百炼<br>OpenAI 兼容</span></div>
+  </div>
+  <div class="arch" style="margin-top:4px">
+    <div class="abox" style="border-color:var(--warn)"><b>🔧 10 个本地工具</b><span>评估/互补/疲劳/饮食<br>1RM/有效组/What-if<br>read_skill / 写周报</span></div>
+    <div class="arrow">⇅</div>
+    <div class="abox"><b>📘 Agent Skill</b><span>weekly-report<br>SKILL.md 规范</span></div>
+    <div class="arrow">⇅</div>
+    <div class="abox"><b>📁 output/</b><span>周报 Markdown<br>唯一可写目录<br>权限隔离</span></div>
+  </div>
+  <p class="muted">循环：LLM 发起工具调用 → dispatch 路由到本地函数 → 结果回传 → 继续调用或给出中文回答</p>
+</section>
+
+<!-- 4 关键能力：工具 -->
+<section class="slide">
+  <h2>关键能力①：10 个自研业务工具</h2>
+  <table>
+    <tr><th>工具</th><th>功能</th><th>科学依据</th></tr>
+    <tr><td><code>evaluate_training</code></td><td>负荷估算 + 三档评估 + 恢复时长</td><td>负荷=时长×min(1,max(.1,(HR−60)/140))</td></tr>
+    <tr><td><code>plan_next_workout</code></td><td>下一次互补训练规划</td><td>12 类运动互补映射；负荷≥80 强制恢复</td></tr>
+    <tr><td><code>compute_fatigue</code></td><td>7 天疲劳指数 0–100</td><td>权重 [7..1] 加权 / 350 归一化</td></tr>
+    <tr><td><code>plan_daily_diet</code></td><td>每日热量 + 双碳水 + 饮水</td><td>Mifflin-St Jeor BMR×活动系数</td></tr>
+    <tr><td><code>recovery_meal_plan</code></td><td>运动后恢复餐配比</td><td>蛋白30/碳水50/脂肪20；超标×0.6</td></tr>
+    <tr><td><code>estimate_one_rep_max</code></td><td>1RM 极限重量估算</td><td>Epley + Brzycki 双公式交叉</td></tr>
+    <tr><td><code>effective_sets</code></td><td>有效组数/容量</td><td>RPE 或 10−RIR ≥ 7 计入</td></tr>
+    <tr><td><code>what_if_simulate</code></td><td>4/8 周体重与负荷推算</td><td>7700 kcal ≈ 1kg 经验公式</td></tr>
+    <tr><td><code>read_skill</code> / <code>write_weekly_report</code></td><td>Skill 读取 / 周报写入</td><td>白名单 + 文件名清洗（权限隔离）</td></tr>
+  </table>
+</section>
+
+<!-- 5 关键能力：一句话多工具 + Skill -->
+<section class="slide">
+  <h2>关键能力②：一句话 → 多工具 · Skill → 产出物</h2>
+  <div class="card">
+    <p>🗣️ 「我今天练了 90 分钟力量，心率 125，消耗 500 千卡，帮我评估、安排明天的训练、再告诉我怎么吃」</p>
+  </div>
+  <div class="grid3" style="margin:8px 0">
+    <div class="card"><p class="big accent">① evaluate_training</p><p class="muted">负荷 47 → 偏低 → 恢复 8h</p></div>
+    <div class="card"><p class="big accent">② plan_next_workout</p><p class="muted">力量 → 有氧慢跑+拉伸 25min</p></div>
+    <div class="card"><p class="big accent">③ recovery_meal_plan</p><p class="muted">蛋白 38g / 碳水 63g / 脂肪 11g</p></div>
+  </div>
+  <div class="card" style="border-color:var(--warn)">
+    <p>📘 <b>Skill 演示</b>：说「帮我生成周训练报告」→ Agent 调 <code>read_skill("weekly-report")</code> 读取 SKILL.md
+    → 按模板调 <code>compute_fatigue</code> 等计算 → <b>展示全文征得同意后</b>才调 <code>write_weekly_report</code>
+    写入 <code>output/周训练报告_*.md</code></p>
+    <p class="muted">⚠️ 写文件是唯一"危险操作"：先确认、后写入；且只能写 output/（路径逃逸被单元测试拦截）</p>
+  </div>
+</section>
+
+<!-- 6 执行过程面板 -->
+<section class="slide">
+  <h2>可演示性：执行过程面板（工具真被调用）</h2>
+  <div class="card" style="font-family:Consolas,monospace;font-size:18px;line-height:2">
+    <p><span style="color:var(--accent2)">⚙️ 执行过程（本轮 3 次工具调用）</span></p>
+    <p>→ 调用工具 <span class="accent">evaluate_training</span><br>
+    &nbsp;&nbsp;{"sport_type": "力量", "duration_min": 90, "avg_heart_rate": 125}</p>
+    <p>✅ 返回 {"load": 47, "load_status": "偏低", "suggested_recovery_hours": 8, ...}</p>
+    <p>→ 调用工具 <span class="accent">plan_next_workout</span><br>
+    &nbsp;&nbsp;{"sport_type": "力量", "training_load": 47}</p>
+    <p>✅ 返回 {"workout_type": "有氧慢跑 + 全身拉伸", "duration_min": 25, ...}</p>
+    <p>→ 调用工具 <span class="accent">recovery_meal_plan</span> …</p>
+  </div>
+  <p class="muted">界面内置面板逐条展示每次工具的名称 / 入参 / 返回（✅/❌）；工具异常时返回可读 error，Agent 会向用户解释原因而非崩溃。</p>
+  <p class="muted">侧边栏：当前模型与端点、10 个已注册工具清单、会话保存/加载（sessions/*.json）。</p>
+</section>
+
+<!-- 7 与课堂实验的关系 -->
+<section class="slide">
+  <h2>与课堂实验的关系（增量在哪）</h2>
+  <table>
+    <tr><th>课堂实验</th><th>用了什么</th><th>我的增量</th></tr>
+    <tr><td>demo_1</td><td>Streamlit</td><td>多轮 Agent 对话 + 执行过程面板 + 会话 JSON 落盘</td></tr>
+    <tr><td>demo_2</td><td>OpenAI 兼容 + Tool Calling</td><td>演示工具 → <b>10 个自研运动科学工具</b>；自研多轮调用循环（轮次上限/异常兜底/失败可解释）</td></tr>
+    <tr><td>demo_3/4</td><td>百炼调用 + .env 密钥管理</td><td>同一套配置可切任意兼容端点（Ollama 等）</td></tr>
+    <tr><td>demo_5</td><td>Agent / Skill 概念</td><td>无框架极简实现，原理可口述；Skill 带 frontmatter 规范；<b>权限隔离 + 单元测试</b></td></tr>
+  </table>
+  <div class="card" style="border-color:var(--accent2)">
+    <p>💡 <b>核心增量</b>：业务算法全部移植自本人独立开发的 HarmonyOS 项目「衡练 SportHealthAgent」（ArkTS 规则引擎），
+    <b>不是 demo_5 换皮</b>——新场景（运动健康）+ 新工具（10 个）+ 新 Skill + 写入权限隔离。</p>
+  </div>
+</section>
+
+<!-- 8 思政与合规 -->
+<section class="slide">
+  <h2>思政与合规说明</h2>
+  <div class="grid2">
+    <div class="card"><p class="big">🏥 健康边界</p>
+      <p class="muted">饮食建议由工具与系统提示词<b>强制</b>附带「日常营养参考，非医疗诊断；如有基础疾病请遵医嘱」；伤病只建议休息与就医</p></div>
+    <div class="card"><p class="big">🔒 隐私保护</p>
+      <p class="muted">不采集真实个人信息；周报用 SKILL.md 声明的虚构样例；会话仅存本地</p></div>
+    <div class="card"><p class="big">🛡️ 权限隔离</p>
+      <p class="muted">Agent 只能写 output/ 目录：白名单 + 文件名清洗防路径逃逸，pytest 验证（test_write_sandbox）</p></div>
+    <div class="card"><p class="big">📚 学术诚信</p>
+      <p class="muted">算法来自本人另一独立项目，已在 README 说明；课堂 demo 仅作能力基线；仓库无任何真实密钥</p></div>
+  </div>
+</section>
+
+<!-- 9 演示步骤 -->
+<section class="slide">
+  <h2>现场演示步骤（约 4 分钟）</h2>
+  <table>
+    <tr><th>#</th><th>操作</th><th>预期</th></tr>
+    <tr><td>1</td><td>双击 run.bat 启动（或 streamlit run app.py）</td><td>浏览器打开对话界面</td></tr>
+    <tr><td>2</td><td>「练了 90 分钟力量…帮我评估、安排明天、怎么吃」</td><td>3 个工具链式调用，面板可见 ✅</td></tr>
+    <tr><td>3</td><td>「我卧推 80kg×5 次，极限多少？」</td><td>1RM 双公式结果</td></tr>
+    <tr><td>4</td><td>「用示例数据生成周训练报告」</td><td>read_skill → 计算展示 → 确认 → 写入 output/</td></tr>
+    <tr><td>5</td><td>打开 output/ 目录与仓库关键代码</td><td>周报 .md；指认 core.py / registry.py / training.py</td></tr>
+  </table>
+  <p class="muted">备份：若现场网络异常，播放 ≤3 分钟录屏（已准备演示视频）。</p>
+</section>
+
+<!-- 10 不足与改进 -->
+<section class="slide">
+  <h2>不足与后续改进</h2>
+  <div class="card"><p>1️⃣ <b>数据源</b>：目前靠口述/示例数据 → 计划接华为 Health Kit REST API 作为第 11 个工具</p></div>
+  <div class="card"><p>2️⃣ <b>流式</b>：工具过程按轮展示，未做 token 级流式渲染</p></div>
+  <div class="card"><p>3️⃣ <b>部署</b>：未 Docker 化 → 一份 Dockerfile 即可补齐</p></div>
+  <div class="card"><p>4️⃣ <b>长期记忆</b>：用户画像持久化（体重/目标），减少重复输入</p></div>
+</section>
+
+<!-- 11 结束 -->
+<section class="slide center">
+  <div style="font-size:64px;margin-bottom:16px">🙏</div>
+  <h1>谢谢观看 · 欢迎提问</h1>
+  <p class="big" style="margin-top:14px">衡练 AI 助手 —— 让运动科学算法开口说人话</p>
+  <p class="muted" style="margin-top:30px;font-size:19px">
+    预答：工具不调用模型会怎样？→ 只剩聊天无精确数值<br>
+    Skill 与系统提示词的区别？→ Skill 是"可加载的操作规程+模板"，按需读取、带产出物<br>
+    密钥为什么不能进 Git？→ 仓库公开即泄漏，且历史难彻底清除
+  </p>
+</section>
+
+<div class="hint">← → / 空格 翻页 · 点击右半屏下一页</div>
+<div class="footer" id="pager">1 / 11</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];let cur=0;
+function show(i){cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  document.getElementById('pager').textContent=(cur+1)+' / '+slides.length;}
+document.addEventListener('keydown',e=>{
+  if(['ArrowRight',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();show(cur+1);}
+  if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(cur-1);}
+  if(e.key==='Home')show(0); if(e.key==='End')show(slides.length-1);});
+document.addEventListener('click',e=>{
+  if(e.clientX>window.innerWidth/2)show(cur+1);else show(cur-1);});
+show(0);
+</script>
+</body>
+</html>

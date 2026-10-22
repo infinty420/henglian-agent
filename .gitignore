@@ -1,0 +1,14 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 密钥（绝不提交）
+.env
+
+# 运行时产出物（保留目录，忽略生成内容）
+output/*
+!output/.gitkeep
+sessions/*
+!sessions/.gitkeep
