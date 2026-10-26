@@ -43,55 +43,62 @@ DEMO_PROMPTS = [
 THEME_CSS = """
 <style>
 :root {
-  --hl-ink: #2b2724;
-  --hl-ink-soft: #776d64;
+  --hl-ink: #262220;
+  --hl-ink-soft: #7d736a;
   --hl-accent: #e8542f;
   --hl-accent-deep: #c93f1d;
-  --hl-accent-soft: #fdece4;
-  --hl-surface: #faf8f5;
-  --hl-panel: #f3eee7;
+  --hl-accent-soft: #ffe9df;
+  --hl-surface: #fdfcfa;
+  --hl-panel: #f7f3ee;
   --hl-card: #ffffff;
-  --hl-line: rgba(43, 39, 36, 0.09);
+  --hl-line: rgba(43, 39, 36, 0.08);
   --hl-ok: #2e7d4f;
   --hl-ok-soft: #e3f1e8;
   --hl-fail: #b3361f;
   --hl-fail-soft: #fbe7e2;
 }
 
-/* 应用底色：暖纸感，非纯白 */
+/* 应用底色：更亮更透，白卡片能"浮"起来 */
 .stApp {
-  background: linear-gradient(180deg, #faf8f5 0%, #f5f0e9 100%);
+  background: linear-gradient(180deg, #fdfcfa 0%, #f8f4ee 60%, #f5efe7 100%);
   color: var(--hl-ink);
 }
 
-/* ---------- 头部横幅 ---------- */
+/* ---------- 头部横幅：白卡 + 橙色渐变锚点，视觉重心 ---------- */
 .hl-hero {
   display: flex; align-items: center; gap: 18px;
-  background: var(--hl-card);
-  border: 1px solid var(--hl-line);
-  border-left: 4px solid var(--hl-accent);
-  border-radius: 14px;
-  padding: 18px 22px;
-  margin: 14px 0 18px;
-  box-shadow: 0 2px 12px rgba(43, 39, 36, 0.06);
+  background: linear-gradient(135deg, #ffffff 55%, #fff2ea 100%);
+  border: 1px solid rgba(232, 84, 47, 0.18);
+  border-left: 5px solid var(--hl-accent);
+  border-radius: 16px;
+  padding: 22px 26px;
+  margin: 16px 0 22px;
+  box-shadow: 0 4px 20px rgba(232, 84, 47, 0.09);
 }
 .hl-hero-icon {
-  width: 52px; height: 52px; border-radius: 12px; flex: none;
-  background: var(--hl-accent-soft);
+  width: 56px; height: 56px; border-radius: 14px; flex: none;
+  background: linear-gradient(135deg, #f97548 0%, #e8542f 60%, #d8441f 100%);
+  box-shadow: 0 4px 14px rgba(232, 84, 47, 0.35);
   display: flex; align-items: center; justify-content: center;
-  font-size: 28px;
+  font-size: 30px;
 }
-.hl-hero-title { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
-.hl-hero-sub { font-size: 13px; color: var(--hl-ink-soft); margin-top: 3px; }
+.hl-hero-title { font-size: 23px; font-weight: 700; letter-spacing: -0.01em; }
+.hl-hero-sub { font-size: 13.5px; color: var(--hl-ink-soft); margin-top: 4px; }
 .hl-hero-meta {
   margin-left: auto; flex: none; text-align: right;
-  font-size: 12.5px; color: var(--hl-ink-soft); line-height: 1.75;
+  font-size: 12.5px; color: var(--hl-ink-soft); line-height: 1.8;
+  padding-left: 18px; border-left: 1px dashed rgba(232, 84, 47, 0.3);
 }
-.hl-hero-meta b { color: var(--hl-ink); }
+.hl-hero-meta b { color: var(--hl-accent-deep); }
 @media (max-width: 640px) { .hl-hero-meta { display: none; } }
 
 /* ---------- 演示话术胶囊按钮 ---------- */
-.hl-demo-label { font-size: 13px; color: var(--hl-ink-soft); margin: 2px 0 8px; }
+.hl-demo-label { font-size: 13px; color: var(--hl-ink-soft); margin: 2px 0 10px; }
+.hl-demo-label::before {
+  content: ""; display: inline-block; width: 8px; height: 8px;
+  border-radius: 50%; background: var(--hl-accent);
+  margin-right: 8px; vertical-align: 1px;
+}
 .stButton > button {
   border: 1px solid var(--hl-line) !important;
   border-radius: 10px !important;
@@ -112,19 +119,24 @@ THEME_CSS = """
   border: 1px solid var(--hl-line);
   border-radius: 14px;
   background: var(--hl-card);
-  box-shadow: 0 1px 4px rgba(43, 39, 36, 0.04);
+  box-shadow: 0 2px 8px rgba(43, 39, 36, 0.05);
   padding: 10px 16px !important;
+  margin-bottom: 6px;
 }
 
-/* ---------- 执行过程面板 ---------- */
+/* ---------- 执行过程面板：淡橙衬底，步骤卡浮起 ---------- */
 [data-testid="stExpander"] {
-  border: 1px solid var(--hl-line) !important;
+  border: 1px solid rgba(232, 84, 47, 0.22) !important;
   border-radius: 12px !important;
-  background: var(--hl-panel);
+  background: #fdf6f1;
   overflow: hidden;
+  box-shadow: 0 2px 10px rgba(232, 84, 47, 0.06);
 }
 [data-testid="stExpander"] details { border: none !important; }
-[data-testid="stExpander"] summary { font-size: 14px; }
+[data-testid="stExpander"] summary {
+  font-size: 14px; font-weight: 600;
+}
+[data-testid="stExpander"] summary strong { color: var(--hl-accent-deep); }
 .hl-step {
   display: flex; align-items: center; gap: 10px;
   padding: 7px 12px; margin: 6px 0;
@@ -161,12 +173,17 @@ THEME_CSS = """
   font-size: 12.5px !important;
 }
 
-/* ---------- 侧边栏：控制台化 ---------- */
+/* ---------- 侧边栏：控制台化（更亮，留白） ---------- */
 section[data-testid="stSidebar"] {
-  background: var(--hl-panel);
+  background: linear-gradient(180deg, #f9f5f0 0%, #f5f0e9 100%);
   border-right: 1px solid var(--hl-line);
 }
-section[data-testid="stSidebar"] hr { margin: 10px 0; }
+section[data-testid="stSidebar"] .stSubheader {
+  color: var(--hl-accent-deep);
+  font-size: 14px !important;
+  letter-spacing: 0.02em;
+}
+section[data-testid="stSidebar"] hr { margin: 12px 0; border-color: var(--hl-line); }
 .hl-status {
   background: var(--hl-card);
   border: 1px solid var(--hl-line);
