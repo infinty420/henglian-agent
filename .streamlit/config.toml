@@ -1,0 +1,7 @@
+# 衡练 AI 助手 · 主题（暖中性色底 + 活力橙强调；投影友好，浅色为主）
+[theme]
+base = "light"
+primaryColor = "#E8542F"
+backgroundColor = "#FAF8F5"
+secondaryBackgroundColor = "#F3EEE7"
+textColor = "#2B2724"

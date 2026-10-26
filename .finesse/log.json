@@ -1,0 +1,10 @@
+[
+  {
+    "date": "2026-10-26",
+    "surface": "app.py (Streamlit AI console)",
+    "register": "product",
+    "axes": "A=暖中性+活力橙(#E8542F) · B=700/400 · C=居中对话+侧栏控制台 · D=feedback-only · E=纸感浅色",
+    "dials": "SOUL=5 SPECTACLE=2 DENSITY=6",
+    "notes": "否决默认 Streamlit 皮肤与 AI 紫色暗色风；新增品牌横幅、状态徽章、工具胶囊、执行过程步骤卡、一键演示话术"
+  }
+]
