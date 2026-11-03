@@ -72,6 +72,24 @@ copy .env.example .env
 
 也可直接双击 `run.bat` 一键完成上述步骤。
 
+### 网页版（FastAPI + 原生网页）
+
+项目另提供一套**纯 HTTP** 的网页版，用于部署到不支持 WebSocket 的托管平台。Streamlit 的交互依赖 WebSocket，在部分反向代理网关（实测 CloudStudio Gateway）下握手会被拦截，表现为页面骨架能加载但一直转圈；网页版走普通 HTTP，可正常打开。
+
+```bat
+:: 一键启动网页版（默认 http://localhost:8501）
+run_web.bat
+
+:: 或手动启动
+.venv\Scripts\python -m uvicorn server:app --host 127.0.0.1 --port 8501
+```
+
+- 后端 `server.py`：`GET /`、`GET /api/config`、`POST /api/chat`、`GET|POST /api/sessions`、`POST /api/session/load`、`GET /healthz`
+- 前端 `templates/index.html`：单文件原生页面，含执行过程面板、工具清单、会话保存/载入、深色模式
+- 与 Streamlit 版**共用**同一套 Agent（`agent/`）与系统提示词，工具能力完全一致，两套界面互不影响
+- 在线演示：<https://henglian-ai.app.workbuddy.host/?sharecode=CQK5ZI5ZYG>
+
+
 运行测试：
 
 ```bat
@@ -109,7 +127,10 @@ copy .env.example .env
 ```
 henglian-agent/
 ├── app.py                    # Streamlit 界面（对话 + 执行过程面板 + 会话管理 + 后端切换展示）
-├── run.bat                   # Windows 一键启动
+├── server.py                 # FastAPI 后端（网页版，纯 HTTP，供无 WebSocket 的托管平台部署）
+├── templates/index.html      # 网页版前端（单文件原生 HTML/CSS/JS）
+├── run.bat                   # Windows 一键启动（Streamlit 版）
+├── run_web.bat               # Windows 一键启动（网页版）
 ├── mcp_server.py             # MCP 服务器（官方 SDK 2.x MCPServer，stdio，暴露 5 个工具）
 ├── mcp_client_demo.py        # MCP 最小客户端演示（握手/列工具/调用，无需模型 Key）
 ├── agent/
@@ -130,6 +151,7 @@ henglian-agent/
 ├── sessions/                 # 保存的会话 JSON
 ├── tests/test_tools.py       # 16 个单元测试
 ├── slides/index.html         # 汇报用 HTML 幻灯片（自包含，双击打开）
+├── slides/index_hyperframes.html  # 汇报用 HTML 幻灯片（动效版）
 ├── .env.example              # 环境变量模板（不含真实密钥）
 └── requirements.txt
 ```
