@@ -1,0 +1,51 @@
+<Slide style={{ background: '#0B1220', padding: 60, position: 'relative', flexDirection: 'column', gap: 28 }}>
+    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+        <Box style={{ width: 8, height: 38, background: '#38BDF8', borderRadius: 4 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#F1F5F9' }}>问题与用户是谁</Text>
+    </Box>
+
+    <Box style={{ flexDirection: 'row', gap: 32, height: 402 }}>
+        <Box style={{ width: 650, flexDirection: 'column', gap: 22 }}>
+            <Box style={{ flexDirection: 'row', gap: 16, alignItems: 'flex-start' }}>
+                <Box style={{ width: 52, height: 52, borderRadius: 14, background: 'rgba(56,189,248,0.10)', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='users' style={{ fill: '#38BDF8', width: 26, height: 26 }} />
+                </Box>
+                <Box style={{ flexDirection: 'column', gap: 8, width: 570 }}>
+                    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#F1F5F9' }}>用户：每周练 3–5 次的大学生</Text>
+                    <Text style={{ fontSize: 19, color: '#94A3B8', lineHeight: 1.6 }}>健身爱好者与运动入门者，没有私教，靠自我摸索安排训练与饮食。</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ height: 1, background: '#1E293B' }} />
+
+            <Box style={{ flexDirection: 'row', gap: 16, alignItems: 'flex-start' }}>
+                <Box style={{ width: 52, height: 52, borderRadius: 14, background: 'rgba(251,191,36,0.10)', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='exclamation-circle' style={{ fill: '#FBBF24', width: 26, height: 26 }} />
+                </Box>
+                <Box style={{ flexDirection: 'column', gap: 8, width: 570 }}>
+                    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#F1F5F9' }}>痛点：练完之后的四个问号</Text>
+                    <Text style={{ fontSize: 19, color: '#94A3B8', lineHeight: 1.6 }}>强度够不够、要恢复多久、今天怎么吃、明天练什么——专业知识散落在教练脑子里和付费 App 里。</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        <Box style={{ width: 478, background: '#101C2B', border: '1px solid #45313A', borderRadius: 16, padding: 26, flexDirection: 'column', gap: 14 }}>
+            <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                <FAIcon name='comments' style={{ fill: '#F87171', width: 24, height: 24 }} />
+                <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#F1F5F9' }}>普通 AI 不够用</Text>
+            </Box>
+            <Text style={{ fontSize: 19, color: '#94A3B8', lineHeight: 1.6 }}>问答型 AI 只能「凭空说话」，能谈原理，却算不出基于<span style={{ color: '#F1F5F9', fontWeight: 'bold' }}>你自己数据</span>的准确数值。</Text>
+            <Box style={{ height: 1, background: '#2A1E28' }} />
+            <Text style={{ fontSize: 19, color: '#F87171', lineHeight: 1.6 }}>同一组训练数据，两次提问可能给出两个不同的负荷数字。</Text>
+        </Box>
+    </Box>
+
+    <Box style={{ background: 'rgba(52,211,153,0.08)', border: '1px solid #1F4A3C', borderLeft: '4px solid #34D399', borderRadius: 12, paddingLeft: 24, paddingRight: 24, paddingTop: 18, paddingBottom: 18 }}>
+        <Text style={{ fontSize: 19, color: '#CBD5E1', lineHeight: 1.6 }}>方案：把确定性运动科学算法（负荷公式、疲劳加权、1RM 双公式、Mifflin-St Jeor）封装为<span style={{ color: '#34D399', fontWeight: 'bold' }}>本地工具</span>，由 LLM 通过 Tool Calling 用自然语言驱动 —— 对话的灵活性 + 规则引擎的精确性。</Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', top: 668, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Text style={{ fontSize: 14, color: '#475569' }}>衡练 AI 助手 · 开源 AI 技术实践期末汇报</Text>
+        <Text style={{ fontSize: 14, color: '#475569' }}>02 / 11</Text>
+    </Box>
+</Slide>

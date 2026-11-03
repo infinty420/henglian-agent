@@ -1,0 +1,52 @@
+<Slide style={{ background: '#0B1220', padding: 60, position: 'relative', flexDirection: 'column', gap: 22 }}>
+    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+        <Box style={{ width: 8, height: 38, background: '#38BDF8', borderRadius: 4 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#F1F5F9' }}>不足与后续改进</Text>
+    </Box>
+
+    <Box style={{ flexDirection: 'column', height: 452 }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 24, height: 112 }}>
+            <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#38BDF8', width: 60 }}>01</Text>
+            <Box style={{ flexDirection: 'column', gap: 6, width: 900 }}>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>数据源仍是手工输入</Text>
+                <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.55 }}>目前依赖口述与示例数据，计划接入华为 Health Kit REST API，作为第 12 个工具自动读取训练记录。</Text>
+            </Box>
+            <Text style={{ fontSize: 16, color: '#FBBF24', width: 120, textAlign: 'right' }}>优先级高</Text>
+        </Box>
+        <Box style={{ height: 1, background: '#1E293B' }} />
+
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 24, height: 112 }}>
+            <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#38BDF8', width: 60 }}>02</Text>
+            <Box style={{ flexDirection: 'column', gap: 6, width: 900 }}>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>过程按轮展示，未做流式</Text>
+                <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.55 }}>工具调用在整轮结束后一次性渲染，缺少 token 级流式输出，长回答的等待感偏强。</Text>
+            </Box>
+            <Text style={{ fontSize: 16, color: '#64748B', width: 120, textAlign: 'right' }}>体验优化</Text>
+        </Box>
+        <Box style={{ height: 1, background: '#1E293B' }} />
+
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 24, height: 112 }}>
+            <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#38BDF8', width: 60 }}>03</Text>
+            <Box style={{ flexDirection: 'column', gap: 6, width: 900 }}>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>尚未容器化部署</Text>
+                <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.55 }}>现在靠本地虚拟环境启动；补一份 Dockerfile 即可一键交付，也便于他人复现。</Text>
+            </Box>
+            <Text style={{ fontSize: 16, color: '#FBBF24', width: 120, textAlign: 'right' }}>优先级高</Text>
+        </Box>
+        <Box style={{ height: 1, background: '#1E293B' }} />
+
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 24, height: 112 }}>
+            <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#38BDF8', width: 60 }}>04</Text>
+            <Box style={{ flexDirection: 'column', gap: 6, width: 900 }}>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>缺少长期记忆</Text>
+                <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.55 }}>体重、目标等用户画像未持久化，每次都要重复输入；计划落地一份本地用户档案。</Text>
+            </Box>
+            <Text style={{ fontSize: 16, color: '#64748B', width: 120, textAlign: 'right' }}>后续迭代</Text>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', top: 668, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Text style={{ fontSize: 14, color: '#475569' }}>衡练 AI 助手 · 开源 AI 技术实践期末汇报</Text>
+        <Text style={{ fontSize: 14, color: '#475569' }}>10 / 11</Text>
+    </Box>
+</Slide>

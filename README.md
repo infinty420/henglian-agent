@@ -152,6 +152,7 @@ henglian-agent/
 ├── tests/test_tools.py       # 16 个单元测试
 ├── slides/index.html         # 汇报用 HTML 幻灯片（自包含，双击打开）
 ├── slides/index_hyperframes.html  # 汇报用 HTML 幻灯片（动效版）
+├── 衡练AI助手_期末汇报/       # 汇报 PPT（.pptx 成品 + slides/*.slide 分页源文件）
 ├── .env.example              # 环境变量模板（不含真实密钥）
 └── requirements.txt
 ```
@@ -165,7 +166,7 @@ henglian-agent/
 
 ## 九、不足与后续改进
 
-1. 未接入真实运动手环/Health Kit 数据源（当前靠自然语言口述或示例数据）——后续可接华为 Health Kit REST API 作为第 11 个工具。
+1. 未接入真实运动手环/Health Kit 数据源（当前靠自然语言口述或示例数据）——后续可接华为 Health Kit REST API 作为第 12 个工具。
 2. 工具调用过程当前为"按轮展示"，未做 token 级流式输出（LangGraph stream_events + 前端逐字渲染）。
 3. 暂未 Docker 化；可用一份 Dockerfile + streamlit 基础镜像补齐一键部署。
 4. 长期记忆仅靠会话 JSON，可引入用户画像持久化（性别/体重/目标）减少重复输入；MCP 传输当前为 stdio，可升级为 SSE 供 WebUI 远程接入。

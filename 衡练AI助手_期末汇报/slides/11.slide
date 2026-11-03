@@ -1,0 +1,32 @@
+<Slide style={{ background: '#0B1220', padding: 60, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 20 }}>
+    <Text style={{ fontSize: 60, fontWeight: 'bold', color: '#F1F5F9', lineHeight: 1.15 }}>谢谢观看 · 欢迎提问</Text>
+    <Text style={{ fontSize: 26, color: '#38BDF8', lineHeight: 1.4 }}>衡练 AI 助手 —— 让运动科学算法开口说人话</Text>
+
+    <Box style={{ width: 900, height: 1, background: '#1E293B', marginTop: 18, marginBottom: 18 }} />
+
+    <Box style={{ width: 900, flexDirection: 'column', gap: 20 }}>
+        <Box style={{ flexDirection: 'row', gap: 16, alignItems: 'flex-start' }}>
+            <FAIcon name='comment' style={{ fill: '#38BDF8', width: 18, height: 18 }} />
+            <Box style={{ flexDirection: 'column', gap: 4, width: 850 }}>
+                <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#F1F5F9' }}>工具不调用模型，会怎样？</Text>
+                <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.55 }}>就只剩聊天：能谈原理，但给不出负荷、1RM、热量这类精确数值，也无法落盘产出物。</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', gap: 16, alignItems: 'flex-start' }}>
+            <FAIcon name='comment' style={{ fill: '#34D399', width: 18, height: 18 }} />
+            <Box style={{ flexDirection: 'column', gap: 4, width: 850 }}>
+                <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#F1F5F9' }}>Skill 与系统提示词有什么区别？</Text>
+                <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.55 }}>系统提示词常驻；Skill 是可加载的操作规程与模板，按需读取，并绑定具体产出物。</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', gap: 16, alignItems: 'flex-start' }}>
+            <FAIcon name='comment' style={{ fill: '#FBBF24', width: 18, height: 18 }} />
+            <Box style={{ flexDirection: 'column', gap: 4, width: 850 }}>
+                <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#F1F5F9' }}>密钥为什么不能进 Git？</Text>
+                <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.55 }}>仓库一旦公开即等于泄漏，且 Git 历史难以彻底清除，只能轮换密钥并重写历史。</Text>
+            </Box>
+        </Box>
+    </Box>
+</Slide>

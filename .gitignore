@@ -16,3 +16,7 @@ sessions/*
 # 工具/平台生成的本地状态与部署标记（不进仓库）
 .workbuddy/
 .wbapp_*.genie
+
+# 幻灯片生成工具的中间缓存（只保留 .slide 源文件与 .pptx 成品）
+.slidep/
+.cache/

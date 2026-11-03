@@ -1,0 +1,70 @@
+<Slide style={{ background: '#0B1220', padding: 60, position: 'relative', flexDirection: 'column', justifyContent: 'space-between' }}>
+    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+        <Box style={{ width: 8, height: 38, background: '#38BDF8', borderRadius: 4 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#F1F5F9' }}>总体架构</Text>
+    </Box>
+
+    <Box style={{ flexDirection: 'column', gap: 18 }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 0 }}>
+            <Box style={{ width: 252, background: '#101C2B', border: '1px solid #27405C', borderRadius: 14, padding: 16, gap: 8, alignItems: 'center' }}>
+                <FAIcon name='user' style={{ fill: '#7DD3FC', width: 24, height: 24 }} />
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>用户</Text>
+                <Text style={{ fontSize: 16, color: '#94A3B8', textAlign: 'center', lineHeight: 1.5 }}>自然语言一句话<br />评估 + 安排 + 怎么吃</Text>
+            </Box>
+            <Box style={{ width: 50, alignItems: 'center' }}><Text style={{ fontSize: 24, color: '#38BDF8' }}>→</Text></Box>
+            <Box style={{ width: 252, background: '#101C2B', border: '1px solid #27405C', borderRadius: 14, padding: 16, gap: 8, alignItems: 'center' }}>
+                <FAIcon name='window-maximize' style={{ fill: '#7DD3FC', width: 24, height: 24 }} />
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>前端界面</Text>
+                <Text style={{ fontSize: 16, color: '#94A3B8', textAlign: 'center', lineHeight: 1.5 }}>Streamlit / 网页版<br />对话 + 执行过程面板</Text>
+            </Box>
+            <Box style={{ width: 50, alignItems: 'center' }}><Text style={{ fontSize: 24, color: '#38BDF8' }}>→</Text></Box>
+            <Box style={{ width: 252, background: 'rgba(52,211,153,0.07)', border: '1px solid #34D399', borderRadius: 14, padding: 16, gap: 8, alignItems: 'center' }}>
+                <FAIcon name='microchip' style={{ fill: '#34D399', width: 24, height: 24 }} />
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>LangGraph Agent</Text>
+                <Text style={{ fontSize: 16, color: '#94A3B8', textAlign: 'center', lineHeight: 1.5 }}>StateGraph ReAct<br />bind_tools + ToolNode</Text>
+            </Box>
+            <Box style={{ width: 50, alignItems: 'center' }}><Text style={{ fontSize: 24, color: '#38BDF8' }}>→</Text></Box>
+            <Box style={{ width: 252, background: '#101C2B', border: '1px solid #27405C', borderRadius: 14, padding: 16, gap: 8, alignItems: 'center' }}>
+                <FAIcon name='cloud' style={{ fill: '#7DD3FC', width: 24, height: 24 }} />
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>通义千问</Text>
+                <Text style={{ fontSize: 16, color: '#94A3B8', textAlign: 'center', lineHeight: 1.5 }}>qwen-plus · 阿里百炼<br />OpenAI 兼容协议</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 0 }}>
+            <Box style={{ width: 252, background: 'rgba(251,191,36,0.06)', border: '1px solid #6B5320', borderRadius: 14, padding: 16, gap: 8, alignItems: 'center' }}>
+                <FAIcon name='wrench' style={{ fill: '#FBBF24', width: 24, height: 24 }} />
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>11 个本地工具</Text>
+                <Text style={{ fontSize: 16, color: '#94A3B8', textAlign: 'center', lineHeight: 1.5 }}>评估 / 互补 / 疲劳 / 饮食<br />1RM / What-if / 文生图</Text>
+            </Box>
+            <Box style={{ width: 50, alignItems: 'center' }}><FAIcon name='arrows-up-down' style={{ fill: '#64748B', width: 18, height: 18 }} /></Box>
+            <Box style={{ width: 252, background: '#101C2B', border: '1px solid #27405C', borderRadius: 14, padding: 16, gap: 8, alignItems: 'center' }}>
+                <FAIcon name='book' style={{ fill: '#7DD3FC', width: 24, height: 24 }} />
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>Agent Skill</Text>
+                <Text style={{ fontSize: 16, color: '#94A3B8', textAlign: 'center', lineHeight: 1.5 }}>weekly-report<br />SKILL.md 操作规程</Text>
+            </Box>
+            <Box style={{ width: 50, alignItems: 'center' }}><FAIcon name='arrows-up-down' style={{ fill: '#64748B', width: 18, height: 18 }} /></Box>
+            <Box style={{ width: 252, background: '#101C2B', border: '1px solid #27405C', borderRadius: 14, padding: 16, gap: 8, alignItems: 'center' }}>
+                <FAIcon name='plug' style={{ fill: '#7DD3FC', width: 24, height: 24 }} />
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>MCP 服务器</Text>
+                <Text style={{ fontSize: 16, color: '#94A3B8', textAlign: 'center', lineHeight: 1.5 }}>官方 SDK · 5 个工具<br />stdio 传输 · 可离线演示</Text>
+            </Box>
+            <Box style={{ width: 50, alignItems: 'center' }}><FAIcon name='arrows-up-down' style={{ fill: '#64748B', width: 18, height: 18 }} /></Box>
+            <Box style={{ width: 252, background: '#101C2B', border: '1px solid #27405C', borderRadius: 14, padding: 16, gap: 8, alignItems: 'center' }}>
+                <FAIcon name='folder-open' style={{ fill: '#7DD3FC', width: 24, height: 24 }} />
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>output/</Text>
+                <Text style={{ fontSize: 16, color: '#94A3B8', textAlign: 'center', lineHeight: 1.5 }}>周报 Markdown<br />唯一可写目录</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, borderTop: '1px solid #1E293B', paddingTop: 16 }}>
+        <FAIcon name='sync-alt' style={{ fill: '#38BDF8', width: 18, height: 18 }} />
+        <Text style={{ fontSize: 17, color: '#94A3B8', lineHeight: 1.5 }}>ReAct 循环：Agent 发起工具调用 → ToolNode 执行本地函数 → 结果回传 → 继续调用或给出中文回答</Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', top: 668, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Text style={{ fontSize: 14, color: '#475569' }}>衡练 AI 助手 · 开源 AI 技术实践期末汇报</Text>
+        <Text style={{ fontSize: 14, color: '#475569' }}>03 / 11</Text>
+    </Box>
+</Slide>

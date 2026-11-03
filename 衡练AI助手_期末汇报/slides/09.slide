@@ -1,0 +1,62 @@
+<Slide style={{ background: '#0B1220', padding: 60, position: 'relative', flexDirection: 'column', gap: 22 }}>
+    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+        <Box style={{ width: 8, height: 38, background: '#38BDF8', borderRadius: 4 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#F1F5F9' }}>现场演示步骤（约 4 分钟）</Text>
+    </Box>
+
+    <Table
+        style={{ width: '100%', height: 424 }}
+        defaultTextStyle={{ fontSize: 16, textAlign: 'left', color: '#CBD5E1' }}
+        defaultCellStyle={{
+            border: { bottom: { width: 1, color: '#1B2940' } },
+            paddingLeft: 14, paddingRight: 14, paddingTop: 10, paddingBottom: 10,
+        }}
+        cells={[
+            [
+                { text: '#', textStyle: { bold: true, fontSize: 16, color: '#F1F5F9' }, cellStyle: { background: { color: '#16233A' } } },
+                { text: '操作', textStyle: { bold: true, fontSize: 16, color: '#F1F5F9' }, cellStyle: { background: { color: '#16233A' } } },
+                { text: '预期效果', textStyle: { bold: true, fontSize: 16, color: '#F1F5F9' }, cellStyle: { background: { color: '#16233A' } } },
+            ],
+            [
+                { text: '1', textStyle: { color: '#38BDF8', bold: true } },
+                '双击 run.bat 启动（或 streamlit run app.py）',
+                '浏览器自动打开对话界面',
+            ],
+            [
+                { text: '2', textStyle: { color: '#38BDF8', bold: true }, cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '「练了 90 分钟力量…帮我评估、安排明天、怎么吃」', cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '3 个工具链式调用，执行过程面板逐条可见', cellStyle: { background: { color: '#0F1A28' } } },
+            ],
+            [
+                { text: '3', textStyle: { color: '#38BDF8', bold: true } },
+                '「我卧推 80kg×5 次，极限大概多少？」',
+                '1RM 双公式（Epley / Brzycki）结果',
+            ],
+            [
+                { text: '4', textStyle: { color: '#38BDF8', bold: true }, cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '「用示例数据生成周训练报告」', cellStyle: { background: { color: '#0F1A28' } } },
+                { text: 'read_skill → 计算展示 → 确认 → 写入 output/', cellStyle: { background: { color: '#0F1A28' } } },
+            ],
+            [
+                { text: '5', textStyle: { color: '#38BDF8', bold: true } },
+                '运行 python mcp_client_demo.py（离线可跑）',
+                'MCP 握手 → 列出 5 个工具 → 实际调用返回',
+            ],
+            [
+                { text: '6', textStyle: { color: '#38BDF8', bold: true }, cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '打开 output/ 目录与仓库关键代码', cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '周报 .md；指认 graph.py / core.py / training.py', cellStyle: { background: { color: '#0F1A28' } } },
+            ],
+        ]}
+    />
+
+    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+        <FAIcon name='info-circle' style={{ fill: '#64748B', width: 18, height: 18 }} />
+        <Text style={{ fontSize: 17, color: '#94A3B8' }}>备份方案：若现场网络异常，改为播放 3 分钟以内的演示录屏。</Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', top: 668, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Text style={{ fontSize: 14, color: '#475569' }}>衡练 AI 助手 · 开源 AI 技术实践期末汇报</Text>
+        <Text style={{ fontSize: 14, color: '#475569' }}>09 / 11</Text>
+    </Box>
+</Slide>

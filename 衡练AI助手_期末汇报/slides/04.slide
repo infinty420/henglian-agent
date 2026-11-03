@@ -1,0 +1,77 @@
+<Slide style={{ background: '#0B1220', padding: 60, position: 'relative', flexDirection: 'column', gap: 22 }}>
+    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+        <Box style={{ width: 8, height: 38, background: '#38BDF8', borderRadius: 4 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#F1F5F9' }}>关键能力①：11 个自研业务工具</Text>
+    </Box>
+
+    <Table
+        style={{ width: '100%', height: 468 }}
+        defaultTextStyle={{ fontSize: 16, textAlign: 'left', color: '#CBD5E1' }}
+        defaultCellStyle={{
+            border: { bottom: { width: 1, color: '#1B2940' } },
+            paddingLeft: 14, paddingRight: 14, paddingTop: 8, paddingBottom: 8,
+        }}
+        cells={[
+            [
+                { text: '工具', textStyle: { bold: true, fontSize: 16, color: '#F1F5F9' }, cellStyle: { background: { color: '#16233A' } } },
+                { text: '功能', textStyle: { bold: true, fontSize: 16, color: '#F1F5F9' }, cellStyle: { background: { color: '#16233A' } } },
+                { text: '科学依据', textStyle: { bold: true, fontSize: 16, color: '#F1F5F9' }, cellStyle: { background: { color: '#16233A' } } },
+            ],
+            [
+                { text: 'evaluate_training', textStyle: { color: '#34D399' } },
+                '负荷估算 + 三档评估 + 恢复时长',
+                '负荷 = 时长 × min(1, max(.1, (HR−60)/140))',
+            ],
+            [
+                { text: 'plan_next_workout', textStyle: { color: '#34D399' }, cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '下一次互补训练规划', cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '12 类运动互补映射；负荷≥80 强制恢复', cellStyle: { background: { color: '#0F1A28' } } },
+            ],
+            [
+                { text: 'compute_fatigue', textStyle: { color: '#34D399' } },
+                '7 天疲劳指数 0–100',
+                '权重 [7..1] 加权 / 350 归一化',
+            ],
+            [
+                { text: 'plan_daily_diet', textStyle: { color: '#34D399' }, cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '每日热量 + 双碳水 + 饮水', cellStyle: { background: { color: '#0F1A28' } } },
+                { text: 'Mifflin-St Jeor BMR × 活动系数', cellStyle: { background: { color: '#0F1A28' } } },
+            ],
+            [
+                { text: 'recovery_meal_plan', textStyle: { color: '#34D399' } },
+                '运动后恢复餐配比',
+                '蛋白30 / 碳水50 / 脂肪20；超标×0.6',
+            ],
+            [
+                { text: 'estimate_one_rep_max', textStyle: { color: '#34D399' }, cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '1RM 极限重量估算', cellStyle: { background: { color: '#0F1A28' } } },
+                { text: 'Epley + Brzycki 双公式交叉验证', cellStyle: { background: { color: '#0F1A28' } } },
+            ],
+            [
+                { text: 'effective_sets', textStyle: { color: '#34D399' } },
+                '有效组数 / 训练容量',
+                'RPE 或 10−RIR ≥ 7 计入',
+            ],
+            [
+                { text: 'what_if_simulate', textStyle: { color: '#34D399' }, cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '4 / 8 周体重与负荷推算', cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '7700 kcal ≈ 1kg 经验公式', cellStyle: { background: { color: '#0F1A28' } } },
+            ],
+            [
+                { text: 'generate_image', textStyle: { color: '#38BDF8' } },
+                '文生图：训练动作示意图',
+                '百炼文生图，异步任务，落盘 output/images/',
+            ],
+            [
+                { text: 'read_skill / write_weekly_report', textStyle: { color: '#38BDF8' }, cellStyle: { background: { color: '#0F1A28' } } },
+                { text: 'Skill 读取 / 周报写入', cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '白名单 + 文件名清洗（权限隔离）', cellStyle: { background: { color: '#0F1A28' } } },
+            ],
+        ]}
+    />
+
+    <Box style={{ position: 'absolute', top: 668, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Text style={{ fontSize: 14, color: '#475569' }}>衡练 AI 助手 · 开源 AI 技术实践期末汇报</Text>
+        <Text style={{ fontSize: 14, color: '#475569' }}>04 / 11</Text>
+    </Box>
+</Slide>

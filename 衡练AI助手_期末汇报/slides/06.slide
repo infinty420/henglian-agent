@@ -1,0 +1,48 @@
+<Slide style={{ background: '#0B1220', padding: 60, position: 'relative', flexDirection: 'column', gap: 22 }}>
+    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+        <Box style={{ width: 8, height: 38, background: '#38BDF8', borderRadius: 4 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#F1F5F9' }}>可演示性：执行过程面板（工具真被调用）</Text>
+    </Box>
+
+    <Box style={{ background: '#08111C', border: '1px solid #1E3A54', borderRadius: 14, padding: 24, gap: 16, height: 386 }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            <FAIcon name='cog' style={{ fill: '#34D399', width: 18, height: 18 }} />
+            <Text style={{ fontSize: 17, color: '#34D399', letterSpacing: 1 }}>执行过程（本轮 3 次工具调用）</Text>
+        </Box>
+
+        <Box style={{ flexDirection: 'column', gap: 4 }}>
+            <Text style={{ fontSize: 17, color: '#94A3B8', lineHeight: 1.5 }}>→ 调用工具 <span style={{ color: '#38BDF8', fontWeight: 'bold' }}>evaluate_training</span></Text>
+            <Text style={{ fontSize: 16, color: '#64748B', lineHeight: 1.5 }}>{'{ "sport_type": "力量", "duration_min": 90, "avg_heart_rate": 125 }'}</Text>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', gap: 10, alignItems: 'flex-start' }}>
+            <FAIcon name='check-circle' style={{ fill: '#34D399', width: 16, height: 16 }} />
+            <Text style={{ fontSize: 16, color: '#A7F3D0', lineHeight: 1.5 }}>返回 {'{ "load": 47, "load_status": "偏低", "suggested_recovery_hours": 8, ... }'}</Text>
+        </Box>
+
+        <Box style={{ flexDirection: 'column', gap: 4 }}>
+            <Text style={{ fontSize: 17, color: '#94A3B8', lineHeight: 1.5 }}>→ 调用工具 <span style={{ color: '#38BDF8', fontWeight: 'bold' }}>plan_next_workout</span></Text>
+            <Text style={{ fontSize: 16, color: '#64748B', lineHeight: 1.5 }}>{'{ "sport_type": "力量", "training_load": 47 }'}</Text>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', gap: 10, alignItems: 'flex-start' }}>
+            <FAIcon name='check-circle' style={{ fill: '#34D399', width: 16, height: 16 }} />
+            <Text style={{ fontSize: 16, color: '#A7F3D0', lineHeight: 1.5 }}>返回 {'{ "workout_type": "有氧慢跑 + 全身拉伸", "duration_min": 25, ... }'}</Text>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', gap: 10, alignItems: 'center' }}>
+            <FAIcon name='arrow-right' style={{ fill: '#475569', width: 16, height: 16 }} />
+            <Text style={{ fontSize: 17, color: '#64748B' }}>继续调用 <span style={{ color: '#38BDF8' }}>recovery_meal_plan</span> … 直至生成中文回答</Text>
+        </Box>
+    </Box>
+
+    <Box style={{ flexDirection: 'column', gap: 10 }}>
+        <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.6 }}>面板逐条展示每次工具的名称、入参、返回（成功 / 失败）；工具异常时返回可读 error，Agent 向用户解释原因而不是崩溃。</Text>
+        <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.6 }}>侧边栏同步显示当前模型与端点、11 个已注册工具清单，以及会话保存与加载（sessions/*.json 落盘）。</Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', top: 668, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Text style={{ fontSize: 14, color: '#475569' }}>衡练 AI 助手 · 开源 AI 技术实践期末汇报</Text>
+        <Text style={{ fontSize: 14, color: '#475569' }}>06 / 11</Text>
+    </Box>
+</Slide>

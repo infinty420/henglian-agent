@@ -1,0 +1,52 @@
+<Slide style={{ background: '#0B1220', padding: 60, position: 'relative', flexDirection: 'column', gap: 22 }}>
+    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+        <Box style={{ width: 8, height: 38, background: '#38BDF8', borderRadius: 4 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#F1F5F9' }}>与课堂实验的关系（增量在哪）</Text>
+    </Box>
+
+    <Table
+        style={{ width: '100%', height: 326 }}
+        defaultTextStyle={{ fontSize: 16, textAlign: 'left', color: '#CBD5E1' }}
+        defaultCellStyle={{
+            border: { bottom: { width: 1, color: '#1B2940' } },
+            paddingLeft: 14, paddingRight: 14, paddingTop: 10, paddingBottom: 10,
+        }}
+        cells={[
+            [
+                { text: '课堂实验', textStyle: { bold: true, fontSize: 16, color: '#F1F5F9' }, cellStyle: { background: { color: '#16233A' } } },
+                { text: '用了什么', textStyle: { bold: true, fontSize: 16, color: '#F1F5F9' }, cellStyle: { background: { color: '#16233A' } } },
+                { text: '我的增量', textStyle: { bold: true, fontSize: 16, color: '#F1F5F9' }, cellStyle: { background: { color: '#16233A' } } },
+            ],
+            [
+                { text: 'demo_1', textStyle: { color: '#38BDF8' } },
+                'Streamlit',
+                '多轮 Agent 对话 + 执行过程面板 + 会话 JSON 落盘',
+            ],
+            [
+                { text: 'demo_2', textStyle: { color: '#38BDF8' }, cellStyle: { background: { color: '#0F1A28' } } },
+                { text: 'OpenAI 兼容 + Tool Calling', cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '演示工具 → 11 个自研运动科学工具；自研多轮调用循环（轮次上限 / 异常兜底 / 失败可解释）', cellStyle: { background: { color: '#0F1A28' } } },
+            ],
+            [
+                { text: 'demo_3 / 4', textStyle: { color: '#38BDF8' } },
+                '百炼调用 + .env 密钥管理',
+                '同一套配置可切换任意兼容端点（如本地 Ollama）',
+            ],
+            [
+                { text: 'demo_5', textStyle: { color: '#38BDF8' }, cellStyle: { background: { color: '#0F1A28' } } },
+                { text: 'Agent 框架 / Skill / MCP 概念', cellStyle: { background: { color: '#0F1A28' } } },
+                { text: '正式接入 LangGraph（StateGraph + ToolNode）；新增官方 SDK MCP 服务器（5 工具）+ 客户端演示；Skill 规范化；权限隔离 + 单元测试', cellStyle: { background: { color: '#0F1A28' } } },
+            ],
+        ]}
+    />
+
+    <Box style={{ background: 'rgba(52,211,153,0.08)', border: '1px solid #1F4A3C', borderLeft: '4px solid #34D399', borderRadius: 12, paddingLeft: 22, paddingRight: 22, paddingTop: 16, paddingBottom: 16, gap: 8 }}>
+        <Text style={{ fontSize: 18, color: '#E2E8F0', lineHeight: 1.6 }}>核心增量：业务算法全部移植自本人独立开发的 HarmonyOS 项目「衡练 SportHealthAgent」（ArkTS 规则引擎），<span style={{ color: '#34D399', fontWeight: 'bold' }}>不是 demo_5 换皮</span>。</Text>
+        <Text style={{ fontSize: 17, color: '#94A3B8', lineHeight: 1.55 }}>新场景（运动健康）+ 新工具（11 个）+ 开源框架编排 + MCP 服务化 + 写入权限隔离。</Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', top: 668, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Text style={{ fontSize: 14, color: '#475569' }}>衡练 AI 助手 · 开源 AI 技术实践期末汇报</Text>
+        <Text style={{ fontSize: 14, color: '#475569' }}>07 / 11</Text>
+    </Box>
+</Slide>

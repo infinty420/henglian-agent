@@ -1,0 +1,53 @@
+<Slide style={{ background: '#0B1220', padding: 60, position: 'relative', flexDirection: 'column', gap: 24 }}>
+    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+        <Box style={{ width: 8, height: 38, background: '#38BDF8', borderRadius: 4 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#F1F5F9' }}>思政与合规说明</Text>
+    </Box>
+
+    <Box style={{ flexDirection: 'column', gap: 24, height: 410 }}>
+        <Box style={{ flexDirection: 'row', gap: 40, height: 180 }}>
+            <Box style={{ width: 560, flexDirection: 'row', gap: 16 }}>
+                <FAIcon name='heart-pulse' style={{ fill: '#F87171', width: 26, height: 26 }} />
+                <Box style={{ flexDirection: 'column', gap: 8, width: 518 }}>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>健康边界</Text>
+                    <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.6 }}>饮食建议由工具与系统提示词强制附带「日常营养参考，非医疗诊断；如有基础疾病请遵医嘱」；涉及伤病只建议休息与就医。</Text>
+                </Box>
+            </Box>
+            <Box style={{ width: 560, flexDirection: 'row', gap: 16 }}>
+                <FAIcon name='user-shield' style={{ fill: '#38BDF8', width: 26, height: 26 }} />
+                <Box style={{ flexDirection: 'column', gap: 8, width: 518 }}>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>隐私保护</Text>
+                    <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.6 }}>不采集真实个人信息；周报使用 SKILL.md 声明的虚构样例数据；会话只保存在本地 sessions/ 目录。</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 1, background: '#1E293B' }} />
+
+        <Box style={{ flexDirection: 'row', gap: 40, height: 180 }}>
+            <Box style={{ width: 560, flexDirection: 'row', gap: 16 }}>
+                <FAIcon name='lock' style={{ fill: '#34D399', width: 26, height: 26 }} />
+                <Box style={{ flexDirection: 'column', gap: 8, width: 518 }}>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>权限隔离</Text>
+                    <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.6 }}>Agent 只能写 output/ 目录：白名单 + 文件名清洗防路径逃逸，并由 pytest 用例 test_write_sandbox 覆盖验证。</Text>
+                </Box>
+            </Box>
+            <Box style={{ width: 560, flexDirection: 'row', gap: 16 }}>
+                <FAIcon name='book-open' style={{ fill: '#FBBF24', width: 26, height: 26 }} />
+                <Box style={{ flexDirection: 'column', gap: 8, width: 518 }}>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F1F5F9' }}>学术诚信</Text>
+                    <Text style={{ fontSize: 18, color: '#94A3B8', lineHeight: 1.6 }}>算法来自本人另一个独立项目并已在 README 说明；课堂 demo 仅作为能力基线；仓库中不含任何真实密钥。</Text>
+                </Box>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ borderTop: '1px solid #1E293B', paddingTop: 18 }}>
+        <Text style={{ fontSize: 19, color: '#CBD5E1', lineHeight: 1.6 }}>这四条不是写在 PPT 里的口号：<span style={{ color: '#38BDF8' }}>边界写进系统提示词</span>，<span style={{ color: '#34D399' }}>隔离写进工具实现</span>，并用单元测试兜底。</Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', top: 668, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Text style={{ fontSize: 14, color: '#475569' }}>衡练 AI 助手 · 开源 AI 技术实践期末汇报</Text>
+        <Text style={{ fontSize: 14, color: '#475569' }}>08 / 11</Text>
+    </Box>
+</Slide>
