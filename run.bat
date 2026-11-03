@@ -13,5 +13,6 @@ if not exist .env (
     echo [警告] 未找到 .env，请先复制 .env.example 为 .env 并填入 DASHSCOPE_API_KEY
 )
 
-echo 启动衡练 AI 助手...
-call .venv\Scripts\streamlit run app.py
+echo 启动衡练 AI 助手 (Streamlit 本地网页: http://localhost:8501) ...
+REM 注意：本机 streamlit.exe 包装器不可用，改用 python -m streamlit 启动
+call .venv\Scripts\python.exe -m streamlit run app.py

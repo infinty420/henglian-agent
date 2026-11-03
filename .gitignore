@@ -12,3 +12,7 @@ output/*
 !output/.gitkeep
 sessions/*
 !sessions/.gitkeep
+
+# 工具/平台生成的本地状态与部署标记（不进仓库）
+.workbuddy/
+.wbapp_*.genie
