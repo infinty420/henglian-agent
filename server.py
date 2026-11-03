@@ -18,10 +18,11 @@
 """
 import os
 import json
+import base64
 from datetime import datetime
 
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
@@ -33,6 +34,9 @@ from agent.tools.registry import TOOL_SPECS
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SESSIONS_DIR = os.path.join(BASE_DIR, "sessions")
 os.makedirs(SESSIONS_DIR, exist_ok=True)
+
+OUTPUT_IMAGES_DIR = os.path.join(BASE_DIR, "output", "images")
+os.makedirs(OUTPUT_IMAGES_DIR, exist_ok=True)
 
 app = FastAPI(title="衡练 AI 助手")
 runner, BACKEND_NAME = get_backend()
@@ -79,12 +83,40 @@ def chat(req: ChatReq):
     history = list(req.history) + [{"role": "user", "content": req.message}]
     try:
         answer, events, updated = runner(history)
-        return {"reply": answer, "events": events, "history": updated}
+        # 把本轮生成的图片以 data-URI 直接内联进响应，前端无需再请求本地文件/接口
+        images = _collect_inline_images(events)
+        return {"reply": answer, "events": events, "history": updated, "images": images}
     except Exception as e:  # 失败可解释，避免前端白屏
         return JSONResponse(
             {"error": f"调用失败：{type(e).__name__}: {e}"},
             status_code=500,
         )
+
+
+_MIME = {"png": "image/png", "jpg": "image/jpeg", "jpeg": "image/jpeg",
+         "webp": "image/webp", "gif": "image/gif", "bmp": "image/bmp"}
+
+
+def _collect_inline_images(events: list) -> list:
+    """扫描工具事件，把本轮生成的本地图片读成 base64 data-URI，供前端直接内联显示。"""
+    out, seen = [], set()
+    for ev in (events or []):
+        if ev.get("type") == "tool_call":
+            continue
+        res = (ev.get("result") or {})
+        path = res.get("local_path")
+        if not path or path in seen or not os.path.isfile(path):
+            continue
+        seen.add(path)
+        ext = os.path.splitext(path)[1].lower().lstrip(".") or "png"
+        mime = _MIME.get(ext, "image/png")
+        try:
+            with open(path, "rb") as f:
+                b64 = base64.b64encode(f.read()).decode("ascii")
+        except Exception:
+            continue
+        out.append({"name": os.path.basename(path), "mime": mime, "data": b64})
+    return out
 
 
 @app.get("/api/sessions")
@@ -126,3 +158,21 @@ def load_session(req: LoadReq):
 @app.get("/healthz")
 def healthz() -> dict:
     return {"code": 200, "msg": "ok", "data": "alive"}
+
+
+@app.get("/images/{filename}")
+def serve_image(filename: str):
+    """提供 output/images/ 下已生成图片的安全访问（仅按文件名读取，禁止路径穿越）。"""
+    safe = os.path.basename(filename)
+    path = os.path.join(OUTPUT_IMAGES_DIR, safe)
+    if not os.path.isfile(path):
+        return JSONResponse({"error": "图片不存在"}, status_code=404)
+    return FileResponse(path)
+
+
+if __name__ == "__main__":
+    # 直接 `python server.py` 也可启动；部署时由网关注入 PORT 环境变量。
+    import uvicorn
+
+    _port = int(os.getenv("PORT", "8501"))
+    uvicorn.run(app, host="0.0.0.0", port=_port)

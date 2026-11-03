@@ -114,6 +114,11 @@
   .bubble table{border-collapse:collapse; width:100%; margin:8px 0; font-size:13px}
   .bubble th,.bubble td{border:1px solid var(--line); padding:6px 9px; text-align:left}
   .bubble th{background:var(--coral-soft); font-weight:700}
+  /* 内联展示生成的图片（直接显示，不再依赖外链） */
+  .bubble img.gen{display:block; max-width:100%; width:auto; height:auto; margin:10px 0 2px;
+    border-radius:14px; border:1px solid var(--line);
+    box-shadow:0 6px 22px rgba(33,28,25,.10); background:var(--paper); cursor:zoom-in}
+  .bubble img.gen.err{display:none}
   .meta{font-size:11px; color:var(--muted); margin:5px 0 0; font-weight:600}
 
   .empty{padding:26px 18px; color:var(--muted); font-size:13px; text-align:center; line-height:1.8}
@@ -400,6 +405,21 @@ function addMsg(role, text){
   return row;
 }
 
+/* 本轮若生成了图片，直接用后端返回的 data-URI 内联展示（无需再请求本地文件/接口） */
+function appendImages(row, images){
+  if (!row || !images || !images.length) return;
+  const bubble = row.querySelector(".bubble");
+  if (!bubble) return;
+  images.forEach(im => {
+    const img = document.createElement("img");
+    img.className = "gen";
+    img.alt = im.name || "生成的图片";
+    img.loading = "lazy";
+    img.src = "data:" + (im.mime || "image/png") + ";base64," + im.data;
+    bubble.appendChild(img);
+  });
+}
+
 function typingRow(){
   const row = document.createElement("div");
   row.className = "row ai"; row.id = "typingRow";
@@ -475,7 +495,8 @@ async function send(text){
       $("execHint").textContent = "失败";
       return;
     }
-    addMsg("assistant", data.reply);
+    const aiRow = addMsg("assistant", data.reply);
+    appendImages(aiRow, data.images || []);
     renderEvents(data.events);
     state.history = data.history || [];
     updateCount();

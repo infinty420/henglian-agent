@@ -412,9 +412,19 @@ def render_events(events: list, key_prefix: str):
                     f'<span class="hl-step-name">{ev["name"]}</span></div>',
                     unsafe_allow_html=True)
                 st.json(ev["result"])
-                path = (ev.get("result") or {}).get("local_path")
-                if path and os.path.isfile(path):
-                    st.image(path, caption=path)
+
+
+def render_turn_images(events: list):
+    """本轮若生成了图片，直接在对话中展示本地图片（不再依赖会过期的外链）。"""
+    seen = set()
+    for ev in (events or []):
+        if ev.get("type") == "tool_call":
+            continue
+        res = ev.get("result") or {}
+        path = res.get("local_path")
+        if path and os.path.isfile(path) and path not in seen:
+            seen.add(path)
+            st.image(path, caption=os.path.basename(path), width="stretch")
 
 
 # ---------------- 侧边栏 ----------------
@@ -544,11 +554,15 @@ with chat_col:
                 else:
                     st.markdown(msg["content"])
         else:  # assistant
+            cur_events = st.session_state.events_history[ev_ptr] \
+                if ev_ptr < len(st.session_state.events_history) else []
             with st.chat_message("assistant", avatar="💪"):
                 if msg.get("error"):
                     st.error(msg["content"])
                 else:
                     st.markdown(msg["content"] or "")
+                    # 直接展示本轮生成的图片（本地文件，不依赖外链）
+                    render_turn_images(cur_events)
             if not msg.get("error") and ev_ptr < len(st.session_state.events_history):
                 render_events(st.session_state.events_history[ev_ptr], "hist")
                 ev_ptr += 1

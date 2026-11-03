@@ -119,7 +119,6 @@ def generate_image(prompt: str, filename: str = "") -> dict:
     return {
         "written": True,
         "local_path": local_path,
-        "url": url,
         "file": safe_name,
         "size_kb": size_kb,
         "model": model,
